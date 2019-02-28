@@ -5,7 +5,7 @@ import {
   Link,
   Redirect
 } from "react-router-dom";
-import "./bootstrap.css"
+import "./bootstrap.css";
 
 class Requisition extends Component {
   constructor(props) {
@@ -43,7 +43,7 @@ class Requisition extends Component {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
-    })
+    });
   }
 
   logChange(e) {
@@ -52,129 +52,195 @@ class Requisition extends Component {
 
   render() {
     return (
-      <div class="col-sm-10">
-        <h2> Practical Order </h2>
-        <form onSubmit={this.handleSubmit} method="POST">
-          <fieldset>
-            <div class="form-group row">
-              <label for="name" class="col-sm-2 col-form-label">Name</label>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Enter Name"
-                name="name"
-                onChange={this.logChange}
-              />
-              <label for="room" class="col-sm-2 col-form-label">Room</label>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Enter Room"
-                name="room"
-                onChange={this.logChange}
-              />
-              <label for="date" class="col-sm-2 col-form-label">Date</label>
-              <input
-                type="date"
-                class="form-control"
-                name="date"
-                onChange={this.logChange}
-              />
-            </div>
-            <div class="form-group row">
-              <label for="period">Period</label>
-              <input
-                type="number"
-                class="form-control"
-                name="period"
-                onChange={this.logChange}
-              />
-              <label for="description">Description</label>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Enter Description"
-                name="description"
-                onChange={this.logChange}
-              />
-              <label for="fileUpload">File Upload</label>
-              <input
-                type="file"
-                class="form-control"
-                name="fileUpload"
-                onChange={this.logChange}
-              />
-            </div>
-            <div class="form-group row">
-              <label for="chemical">Chemical</label>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Enter Chemical"
-                name="chemical"
-                onChange={this.logChange}
-              />
-              <label for="quantity">Quantity</label>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Enter Quantity"
-                name="quantity"
-                onChange={this.logChange}
-              />
-              <label for="quantity">Allocation</label>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Enter Allocation"
-                name="allocation"
-                onChange={this.logChange}
-              />
-              <label for="hazards">Hazards</label>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Enter Hazards"
-                name="hazards"
-                onChange={this.logChange}
-              />
-              <label for="doc">Demo or Class?</label>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Enter DoC"
-                name="doc"
-                onChange={this.logChange}
-              />
-              <label for="sets">Sets</label>
-              <input
-                type="number"
-                class="form-control"
-                name="sets"
-                onChange={this.logChange}
-              />
-            </div>
-            <div class="form-group row">
-              <label for="apparatus">Apparatus</label>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Enter Apparatus"
-                name="apparatus"
-                onChange={this.logChange}
-              />
-              <label for="addNotes">Additional Notes</label>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Enter Additional Notes"
-                name="addNotes"
-                onChange={this.logChange}
-              />
-            </div>
-            <input type="submit" value="Submit" class="btn btn-success" />
-          </fieldset>
-        </form>
+      <div id="formContainer">
+        <div class="col-sm-11" id="form">
+          <h2> Practical Order </h2>
+          <form onSubmit={this.handleSubmit} method="POST">
+            <fieldset>
+              <form class="row form">
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label for="name" class="col-form-label">
+                      Name:
+                    </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Enter Name"
+                      name="name"
+                      onChange={this.logChange}
+                    />
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label for="room" class="col-form-label">
+                      Room:
+                    </label>
+                    <input
+                      type="text"
+                      class="form-control col-sm"
+                      placeholder="Enter Room"
+                      name="room"
+                      onChange={this.logChange}
+                    />
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label for="date" class="col-form-label">
+                      Date:
+                    </label>
+                    <input
+                      type="date"
+                      class="form-control col-sm"
+                      name="date"
+                      onChange={this.logChange}
+                    />
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label for="period" class="col-form-label">
+                      Period:
+                    </label>
+                    <input
+                      type="number"
+                      class="form-control col-sm"
+                      name="period"
+                      onChange={this.logChange}
+                    />
+                  </div>
+                </div>
+                <div class="col-md-8">
+                  <div class="form-group">
+                    <label for="description" class="col-form-label">
+                      Practical Description:
+                    </label>
+                    <input
+                      type="text"
+                      class="form-control col-sm"
+                      placeholder="Enter Description"
+                      name="description"
+                      onChange={this.logChange}
+                    />
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label for="sets" class="col-form-label">
+                      Number of Sets:
+                    </label>
+                    <input
+                      type="number"
+                      class="form-control col-sm"
+                      name="sets"
+                      onChange={this.logChange}
+                    />
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label for="fileUpload" class="col-form-label">
+                      File Upload:
+                    </label>
+                    <input
+                      type="file"
+                      class="form-control col-sm"
+                      name="fileUpload"
+                      onChange={this.logChange}
+                    />
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="chemical" class="col-form-label">
+                      Chemical:
+                    </label>
+                    <input
+                      type="text"
+                      class="form-control col-sm"
+                      placeholder="Enter Chemical"
+                      name="chemical"
+                      onChange={this.logChange}
+                    />
+                  </div>
+                </div>
+
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label for="quantity" class="col-form-label">
+                      Quantity:
+                    </label>
+                    <input
+                      type="text"
+                      class="form-control col-sm"
+                      placeholder="Enter Quantity"
+                      name="quantity"
+                      onChange={this.logChange}
+                    />
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label for="quantity" class="col-form-label">
+                      Allocation:
+                    </label>
+                    <input
+                      type="text"
+                      class="form-control col-sm"
+                      placeholder="Bulk or Individual?"
+                      name="allocation"
+                      onChange={this.logChange}
+                    />
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="hazards" class="col-form-label">
+                      Hazards:
+                    </label>
+                    <input
+                      type="text"
+                      class="form-control col-sm"
+                      placeholder="Enter Hazards"
+                      name="hazards"
+                      onChange={this.logChange}
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="apparatus" class="col-form-label">
+                      Apparatus:
+                    </label>
+                    <textarea
+                      class="form-control col"
+                      id="exampleTextarea"
+                      rows="6"
+                      onChange={this.logChange}
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="addNotes" class="col-form-label">
+                      Additional Notes:
+                    </label>
+                    <textarea
+                      class="form-control col"
+                      id="exampleTextarea"
+                      rows="6"
+                      onChange={this.logChange}
+                    />
+                  </div>
+                </div>
+              </form>
+              <input type="submit" value="Submit" class="btn btn-success" />
+            </fieldset>
+          </form>
+        </div>
+        <p id="trademark">Created by Paul Ayling @chemistrytocode</p>
       </div>
     );
   }
