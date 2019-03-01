@@ -19,21 +19,13 @@ class Feedback extends Component {
     event.preventDefault();
     var data = {
       name: this.state.name,
-      room: this.state.room,
-      dateReq: this.state.dateReq,
-      description: this.state.description,
-      fileupload: this.state.fileUpload,
-      chemical: this.state.chemical,
-      quantity: this.state.quantity,
-      allocation: this.state.allocation,
-      hazards: this.state.hazards,
-      sets: this.state.sets,
-      apparatus: this.state.doc,
-      addNotes: this.state.doc
+      email: this.state.email,
+      rating: this.state.rating,
+      addNotes: this.state.addNotes,
     };
 
     console.log(data);
-    fetch("http://localhost:5000/users/new", {
+    fetch("http://localhost:5000/feedback", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
@@ -50,12 +42,12 @@ class Feedback extends Component {
         <div class="col-sm-6" id="form">
           <h2> Feedback! </h2>
           <p> If you would like to give feedback please fill in your information below </p>
-          <form onSubmit={this.handleSubmit} method="POST">
+          <form onSubmit={this.handleSubmit} method="POST" class="row form">
             <fieldset>
-              <form class="row form">
+              <div class="row form">
                 <div class="col-sm-6">
                   <div class="form-group">
-                    <label for="name" class="col-form-label">
+                    <label id="name" class="col-form-label">
                       Name:
                     </label>
                     <input
@@ -69,7 +61,7 @@ class Feedback extends Component {
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group">
-                    <label for="email" class="col-form-label">
+                    <label id="email" class="col-form-label">
                       Email:
                     </label>
                     <input
@@ -83,8 +75,8 @@ class Feedback extends Component {
                 </div>
                 <div class="col-md-12">
                   <div class="form-group">
-                  <label for="rating">How do you rate this app?</label>
-                  <select class="form-control" id="exampleSelect1">
+                  <label id="rating">How do you rate this app?</label>
+                  <select class="form-control" id="rating">
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -100,19 +92,19 @@ class Feedback extends Component {
                 </div>
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="addNotes" class="col-form-label">
+                    <label idea="addNotes" class="col-form-label">
                       What features would you like to see added or improved upon?
                     </label>
                     <textarea
                       class="form-control col"
-                      id="exampleTextarea"
+                      id="addNotes"
                       rows="6"
                       onChange={this.logChange}
                     />
                   </div>
                 </div>
-              </form>
-              <input type="submit" value="Submit" class="btn btn-success" />
+              </div>
+              <input type="submit" value="Submit!" class="btn btn-success" />
             </fieldset>
           </form>
         </div>

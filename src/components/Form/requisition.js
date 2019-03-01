@@ -33,7 +33,7 @@ class Requisition extends Component {
     };
 
     console.log(data);
-    fetch("http://localhost:5000/users/new", {
+    fetch("http://localhost:5000/order", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
@@ -48,13 +48,13 @@ class Requisition extends Component {
     return (
       <div id="formContainer">
         <div class="col-sm-11" id="form">
-          <h2> Practical Order </h2>
+          <h2> Practical Order! </h2>
           <form onSubmit={this.handleSubmit} method="POST">
             <fieldset>
-              <form class="row form">
+              <div class="row form">
                 <div class="col-md-3">
                   <div class="form-group">
-                    <label for="name" class="col-form-label">
+                    <label id="name" class="col-form-label">
                       Name:
                     </label>
                     <input
@@ -68,7 +68,7 @@ class Requisition extends Component {
                 </div>
                 <div class="col-md-3">
                   <div class="form-group">
-                    <label for="room" class="col-form-label">
+                    <label id="room" class="col-form-label">
                       Room:
                     </label>
                     <input
@@ -82,7 +82,7 @@ class Requisition extends Component {
                 </div>
                 <div class="col-md-3">
                   <div class="form-group">
-                    <label for="date" class="col-form-label">
+                    <label id="date" class="col-form-label">
                       Date:
                     </label>
                     <input
@@ -95,7 +95,7 @@ class Requisition extends Component {
                 </div>
                 <div class="col-md-3">
                   <div class="form-group">
-                    <label for="period" class="col-form-label">
+                    <label id="period" class="col-form-label">
                       Period:
                     </label>
                     <input
@@ -108,7 +108,7 @@ class Requisition extends Component {
                 </div>
                 <div class="col-md-8">
                   <div class="form-group">
-                    <label for="description" class="col-form-label">
+                    <label id="description" class="col-form-label">
                       Practical Description:
                     </label>
                     <input
@@ -122,7 +122,7 @@ class Requisition extends Component {
                 </div>
                 <div class="col-md-2">
                   <div class="form-group">
-                    <label for="sets" class="col-form-label">
+                    <label id="sets" class="col-form-label">
                       Number of Sets:
                     </label>
                     <input
@@ -135,7 +135,7 @@ class Requisition extends Component {
                 </div>
                 <div class="col-md-2">
                   <div class="form-group">
-                    <label for="fileUpload" class="col-form-label">
+                    <label id="fileUpload" class="col-form-label">
                       File Upload:
                     </label>
                     <input
@@ -148,7 +148,7 @@ class Requisition extends Component {
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
-                    <label for="chemical" class="col-form-label">
+                    <label id="chemical" class="col-form-label">
                       Chemical:
                     </label>
                     <input
@@ -163,7 +163,7 @@ class Requisition extends Component {
 
                 <div class="col-md-2">
                   <div class="form-group">
-                    <label for="quantity" class="col-form-label">
+                    <label id="quantity" class="col-form-label">
                       Quantity:
                     </label>
                     <input
@@ -177,7 +177,7 @@ class Requisition extends Component {
                 </div>
                 <div class="col-md-2">
                   <div class="form-group">
-                    <label for="quantity" class="col-form-label">
+                    <label id="quantity" class="col-form-label">
                       Allocation:
                     </label>
                     <input
@@ -191,7 +191,7 @@ class Requisition extends Component {
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
-                    <label for="hazards" class="col-form-label">
+                    <label id="hazards" class="col-form-label">
                       Hazards:
                     </label>
                     <input
@@ -205,7 +205,7 @@ class Requisition extends Component {
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="apparatus" class="col-form-label">
+                    <label id="apparatus" class="col-form-label">
                       Apparatus:
                     </label>
                     <textarea
@@ -218,7 +218,7 @@ class Requisition extends Component {
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="addNotes" class="col-form-label">
+                    <label id="addNotes" class="col-form-label">
                       Additional Notes:
                     </label>
                     <textarea
@@ -229,8 +229,8 @@ class Requisition extends Component {
                     />
                   </div>
                 </div>
-              </form>
-              <input type="submit" value="Submit" class="btn btn-success" />
+              </div>
+              <input type="submit" value="Submit!" class="btn btn-success" />
             </fieldset>
           </form>
         </div>

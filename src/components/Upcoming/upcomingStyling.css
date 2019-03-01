@@ -1,0 +1,74 @@
+#upcomingContainer, #selectionContainer {
+  text-align: center;
+}
+
+table {
+  text-align: center;
+}
+
+table, #fullBorder {
+  border: 2px solid black;
+}
+
+
+
+#LRborder {
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+}
+
+#p1m:hover,
+#p2m:hover,
+#p3m:hover,
+#p4m:hover,
+#p5m:hover,
+#p6m:hover,
+#p7m:hover,
+#p8m:hover,
+#p1tu:hover,
+#p2tu:hover,
+#p3tu:hover,
+#p4tu:hover,
+#p5tu:hover,
+#p6tu:hover,
+#p7tu:hover,
+#p8tu:hover,
+#p1w:hover,
+#p2w:hover,
+#p3w:hover,
+#p4w:hover,
+#p5w:hover,
+#p6w:hover,
+#p7w:hover,
+#p8w:hover,
+#p1th:hover,
+#p2th:hover,
+#p3th:hover,
+#p4th:hover,
+#p5th:hover,
+#p6th:hover,
+#p7th:hover,
+#p8th:hover,
+#p1f:hover,
+#p2f:hover,
+#p3f:hover,
+#p4f:hover,
+#p5f:hover,
+#p6f:hover,
+#p7f:hover,
+#p8f:hover,
+#p1s:hover,
+#p2s:hover,
+#p3s:hover,
+#p4s:hover,
+#p5s:hover,
+#p6s:hover,
+#p7s:hover,
+#p8s:hover {
+  background-color: gold;
+  color: black;
+}
+
+#thisWeek, #aOrB {
+  font-size: 250%;
+}

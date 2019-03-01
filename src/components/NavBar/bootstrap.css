@@ -2666,6 +2666,7 @@ fieldset:disabled a.btn {
   color: #fff;
   background-color: #28a745;
   border-color: #28a745;
+  font-size: 300%;
 }
 
 .btn-success:hover {
