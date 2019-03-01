@@ -8,8 +8,8 @@ class NavBar extends Component {
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="/">
-                Home
+              <a class="nav-link" href="/account">
+                Account Info
               </a>
             </li>
           </ul>

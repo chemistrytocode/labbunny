@@ -7,29 +7,29 @@ class UpcomingWeek extends Component {
       <div id="upcomingContainer" class="col-sm-12">
         <h2> Upcoming Orders! </h2>
         <div class="row form">
-        <div class="col-md-4">
-        <h3>This Week's Date</h3>
-        <p id="thisWeek">DATE</p>
-        </div>
-        <div id="selectionContainer" class="col-md-4">
-        <p>Select a week:</p>
-        <select class="form-control" id="weekSelection">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-          <option>6</option>
-          <option>7</option>
-          <option>8</option>
-          <option>9</option>
-          <option>10</option>
-        </select>
-        </div>
-        <div class="col-md-4">
-        <h3>Week A or B?</h3>
-        <p id="aOrB">It's WEEK A</p>
-        </div>
+          <div class="col-md-4">
+            <h3>This Week's Date</h3>
+            <p id="thisWeek">DATE</p>
+          </div>
+          <div id="selectionContainer" class="col-md-4">
+            <p>Select a week:</p>
+            <select class="form-control" id="weekSelection">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <h3>Week A or B?</h3>
+            <p id="aOrB">It's WEEK A</p>
+          </div>
         </div>
         <p>Then click on individual days for more details:</p>
         <div id="tableContainer">

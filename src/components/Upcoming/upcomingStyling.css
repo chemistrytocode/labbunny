@@ -1,4 +1,5 @@
-#upcomingContainer, #selectionContainer {
+#upcomingContainer,
+#selectionContainer {
   text-align: center;
 }
 
@@ -6,16 +7,22 @@ table {
   text-align: center;
 }
 
-table, #fullBorder {
+table,
+#fullBorder,
+#description,
+#apparatus,
+#chemcials,
+#quantity,
+#hazards {
   border: 2px solid black;
 }
-
-
 
 #LRborder {
   border-left: 2px solid black;
   border-right: 2px solid black;
 }
+
+
 
 #p1m:hover,
 #p2m:hover,
@@ -64,11 +71,20 @@ table, #fullBorder {
 #p5s:hover,
 #p6s:hover,
 #p7s:hover,
-#p8s:hover {
+#p8s:hover,
+#p1:hover,
+#p2:hover,
+#p3:hover,
+#p4:hover,
+#p5:hover,
+#p6:hover,
+#p7:hover,
+#p8:hover {
   background-color: gold;
   color: black;
 }
 
-#thisWeek, #aOrB {
+#thisWeek,
+#aOrB {
   font-size: 250%;
 }
