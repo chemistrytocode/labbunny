@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import NavBar from '../NavBar/navbar'
+
 import "./upcomingStyling.css";
 
 class UpcomingWeek extends Component {
@@ -36,125 +38,95 @@ class UpcomingWeek extends Component {
           <table class="table table-hover">
             <thead>
               <tr>
-                <td scope="col" id="fullBorder">
-                  Period
-                </td>
-                <td scope="col" id="fullBorder">
-                  Monday
-                </td>
-                <td scope="col" id="fullBorder">
-                  Tuesday
-                </td>
-                <td scope="col" id="fullBorder">
-                  Wednesday
-                </td>
-                <td scope="col" id="fullBorder">
-                  Thursday
-                </td>
-                <td scope="col" id="fullBorder">
-                  Friday
-                </td>
-                <td scope="col" id="fullBorder">
-                  Saturday
-                </td>
+                <td id="fullBorder">Period</td>
+                <td id="fullBorder">Monday</td>
+                <td id="fullBorder">Tuesday</td>
+                <td id="fullBorder">Wednesday</td>
+                <td id="fullBorder">Thursday</td>
+                <td id="fullBorder">Friday</td>
+                <td id="fullBorder">Saturday</td>
               </tr>
               <tr class="table-light">
-                <td scope="col" id="LRborder">
-                  1
-                </td>
-                <td scope="col" id="p1m" />
-                <td scope="col" id="p1tu" />
-                <td scope="col" id="p1w" />
-                <td scope="col" id="p1th" />
-                <td scope="col" id="p1f" />
-                <td scope="col" id="p1s" />
+                <td id="LRborder">1</td>
+                <td id="p1m" />
+                <td id="p1tu" />
+                <td id="p1w" />
+                <td id="p1th" />
+                <td id="p1f" />
+                <td id="p1s" />
               </tr>
               <tr class="table-light">
-                <td scope="col" id="LRborder">
-                  2
-                </td>
-                <td scope="col" id="p2m" />
-                <td scope="col" id="p2tu" />
-                <td scope="col" id="p2w" />
-                <td scope="col" id="p2th" />
-                <td scope="col" id="p2f" />
-                <td scope="col" id="p2s" />
+                <td id="LRborder">2</td>
+                <td id="p2m" />
+                <td id="p2tu" />
+                <td id="p2w" />
+                <td id="p2th" />
+                <td id="p2f" />
+                <td id="p2s" />
               </tr>
               <tr class="table-light">
-                <td scope="col" id="LRborder">
-                  3
-                </td>
-                <td scope="col" id="p3m" />
-                <td scope="col" id="p3tu" />
-                <td scope="col" id="p3w" />
-                <td scope="col" id="p3th" />
-                <td scope="col" id="p3f" />
-                <td scope="col" id="p3s" />
+                <td id="LRborder">3</td>
+                <td id="p3m" />
+                <td id="p3tu" />
+                <td id="p3w" />
+                <td id="p3th" />
+                <td id="p3f" />
+                <td id="p3s" />
               </tr>
               <tr class="table-success" id="fullBorder">
-                <td scope="col" colspan="7" align="center">
+                <td colspan="7" align="center">
                   Break
                 </td>
               </tr>
               <tr class="table-light">
-                <td scope="col" id="LRborder">
-                  4
-                </td>
-                <td scope="col" id="p4m" />
-                <td scope="col" id="p4tu" />
-                <td scope="col" id="p4w" />
-                <td scope="col" id="p4th" />
-                <td scope="col" id="p4f" />
-                <td scope="col" id="p4s" />
+                <td id="LRborder">4</td>
+                <td id="p4m" />
+                <td id="p4tu" />
+                <td id="p4w" />
+                <td id="p4th" />
+                <td id="p4f" />
+                <td id="p4s" />
               </tr>
               <tr class="table-light">
-                <td scope="col" id="LRborder">
-                  5
-                </td>
-                <td scope="col" id="p5m" />
-                <td scope="col" id="p5tu" />
-                <td scope="col" id="p5w" />
-                <td scope="col" id="p5th" />
-                <td scope="col" id="p5f" />
-                <td scope="col" id="p5s" />
+                <td id="LRborder">5</td>
+                <td id="p5m" />
+                <td id="p5tu" />
+                <td id="p5w" />
+                <td id="p5th" />
+                <td id="p5f" />
+                <td id="p5s" />
               </tr>
               <tr class="table-success" id="fullBorder">
-                <td scope="col" colspan="7" align="center">
+                <td colspan="7" align="center">
                   Lunch
                 </td>
               </tr>
               <tr class="table-light">
-                <td scope="col" id="LRborder">
-                  6
-                </td>
-                <td scope="col" id="p6m" />
-                <td scope="col" id="p6tu" />
-                <td scope="col" id="p6w" />
-                <td scope="col" id="p6th" />
-                <td scope="col" id="p6f" />
-                <td scope="col" id="p6s" />
+                <td id="LRborder">6</td>
+                <td id="p6m" />
+                <td id="p6tu" />
+                <td id="p6w" />
+                <td id="p6th" />
+                <td id="p6f" />
+                <td id="p6s" />
               </tr>
               <tr class="table-light">
-                <td scope="col" id="LRborder">
-                  7
-                </td>
-                <td scope="col" id="p7m" />
-                <td scope="col" id="p7tu" />
-                <td scope="col" id="p7w" />
-                <td scope="col" id="p7th" />
-                <td scope="col" id="p7f" />
-                <td scope="col" id="p7s" />
+                <td id="LRborder">7</td>
+                <td id="p7m" />
+                <td id="p7tu" />
+                <td id="p7w" />
+                <td id="p7th" />
+                <td id="p7f" />
+                <td id="p7s" />
               </tr>
               <tr class="table-light">
-                <td scope="col" id="LRborder">
-                  8
-                </td>
-                <td scope="col" id="p8m" />
-                <td scope="col" id="p8tu" />
-                <td scope="col" id="p8w" />
-                <td scope="col" id="p8th" />
-                <td scope="col" id="p8f" />
-                <td scope="col" id="p8s" />
+                <td id="LRborder">8</td>
+                <td id="p8m" />
+                <td id="p8tu" />
+                <td id="p8w" />
+                <td id="p8th" />
+                <td id="p8f" />
+                <td id="p8s" />
               </tr>
             </thead>
           </table>

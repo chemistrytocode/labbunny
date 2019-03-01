@@ -1,5 +1,11 @@
 import React, { Component } from "react";
+import { GoogleLogout } from 'react-google-login';
+
 import "./bootstrap.css";
+
+const logout = (response) => {
+  console.log(response);
+}
 
 class NavBar extends Component {
   render() {
@@ -7,31 +13,21 @@ class NavBar extends Component {
       <div>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="/account">
+            <li>
+              <a id="navbar-brand" href="/account">
                 Account Info
               </a>
             </li>
           </ul>
-          <a class="navbar-brand" href="/order">
+          <a id="navbar-brand" href="/order">
             Practical Order
           </a>
-          <a class="navbar-brand" href="/upcoming">
+          <a id="navbar-brand" href="/upcoming">
             Upcoming Practicals
           </a>
-          <a class="navbar-brand" href="/feedback">
+          <a id="navbar-brand" href="/feedback">
             Submit Feedback
           </a>
-          <form class="form-inline my-2 my-lg-0">
-            <input
-              class="form-control mr-sm-2"
-              type="text"
-              placeholder="Search"
-            />
-            <button class="btn btn-secondary my-2 my-sm-0" type="submit">
-              Search
-            </button>
-          </form>
         </nav>
       </div>
     );

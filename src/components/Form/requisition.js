@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import NavBar from '../NavBar/navbar'
+
 import "./requisitionStyling.css";
 
 class Requisition extends Component {

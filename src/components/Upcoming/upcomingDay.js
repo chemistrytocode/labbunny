@@ -1,6 +1,9 @@
-import React, { Component } from "react";
+import React, { Component } from "react"
+import NavBar from '../NavBar/navbar'
+import Practical from "./practical";
 import "./upcomingStyling.css";
-import Practical from './practical'
+
+
 
 class UpcomingDay extends Component {
   render() {
@@ -14,70 +17,50 @@ class UpcomingDay extends Component {
             <table class="table table-hover">
               <thead>
                 <tr>
-                  <td scope="col" id="fullBorder">
-                    Period
-                  </td>
-                  <td scope="col" id="fullBorder">
-                    Orders
-                  </td>
+                  <td id="fullBorder">Period</td>
+                  <td id="fullBorder">Orders</td>
                 </tr>
                 <tr class="table-light">
-                  <td scope="col" id="LRborder">
-                    1
-                  </td>
-                  <td scope="col" id="p1" />
+                  <td id="LRborder">1</td>
+                  <td id="p1" />
                 </tr>
                 <tr class="table-light">
-                  <td scope="col" id="LRborder">
-                    2
-                  </td>
-                  <td scope="col" id="p2" />
+                  <td id="LRborder">2</td>
+                  <td id="p2" />
                 </tr>
                 <tr class="table-light">
-                  <td scope="col" id="LRborder">
-                    3
-                  </td>
-                  <td scope="col" id="p3" />
+                  <td id="LRborder">3</td>
+                  <td id="p3" />
                 </tr>
                 <tr class="table-success" id="fullBorder">
-                  <td scope="col" colspan="7" align="center">
+                  <td colspan="7" align="center">
                     Break
                   </td>
                 </tr>
                 <tr class="table-light">
-                  <td scope="col" id="LRborder">
-                    4
-                  </td>
-                  <td scope="col" id="p4" />
+                  <td id="LRborder">4</td>
+                  <td id="p4" />
                 </tr>
                 <tr class="table-light">
-                  <td scope="col" id="LRborder">
-                    5
-                  </td>
-                  <td scope="col" id="p5" />
+                  <td id="LRborder">5</td>
+                  <td id="p5" />
                 </tr>
                 <tr class="table-success" id="fullBorder">
-                  <td scope="col" colspan="2" align="center">
+                  <td colspan="2" align="center">
                     Lunch
                   </td>
                 </tr>
                 <tr class="table-light">
-                  <td scope="col" id="LRborder">
-                    6
-                  </td>
-                  <td scope="col" id="p6" />
+                  <td id="LRborder">6</td>
+                  <td id="p6" />
                 </tr>
                 <tr class="table-light">
-                  <td scope="col" id="LRborder">
-                    7
-                  </td>
-                  <td scope="col" id="p7" />
+                  <td id="LRborder">7</td>
+                  <td id="p7" />
                 </tr>
                 <tr class="table-light">
-                  <td scope="col" id="LRborder">
-                    8
-                  </td>
-                  <td scope="col" id="p8" />
+                  <td id="LRborder">8</td>
+                  <td id="p8" />
                 </tr>
               </thead>
             </table>
@@ -85,7 +68,7 @@ class UpcomingDay extends Component {
           <div id="selectionContainer" class="col-sm-6">
             <div class="col-md-4">
               <h3>Details</h3>
-              <Practical/>
+              <Practical />
             </div>
           </div>
         </div>

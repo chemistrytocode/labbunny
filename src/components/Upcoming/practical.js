@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import NavBar from '../NavBar/navbar'
+
 import "./upcomingStyling.css";
 
 class Practical extends Component {
@@ -8,78 +10,72 @@ class Practical extends Component {
         <table class="table table-hover" id="fullBorder">
           <thead>
             <tr>
-              <td scope="col" id="fullBorder" colspan="3">
+              <td id="fullBorder" colspan="3">
                 <h3>PopulateTeacher</h3>
               </td>
             </tr>
             <tr class="table-light">
-              <td scope="col" id="LRborder">
+              <td id="LRborder">
                 <h4>Form</h4>
               </td>
-              <td scope="col" id="period" colspan="2">
+              <td id="period" colspan="2">
                 PopualteForm
               </td>
             </tr>
             <tr class="table-light">
-              <td scope="col" id="LRborder">
+              <td id="LRborder">
                 <h4>Period</h4>
               </td>
-              <td scope="col" id="period" colspan="2">
+              <td id="period" colspan="2">
                 PopualtePeriod
               </td>
             </tr>
             <tr class="table-light">
-              <td scope="col" id="LRborder">
+              <td id="LRborder">
                 <h4>Sets</h4>
               </td>
-              <td scope="col" id="sets" colspan="2">
+              <td id="sets" colspan="2">
                 PopulateSets
               </td>
             </tr>
             <tr class="table-light">
-              <td scope="col" id="fullBorder" colspan="3">
+              <td id="fullBorder" colspan="3">
                 <h4>Description</h4>
               </td>
             </tr>
             <tr class="table-light">
-              <td scope="col" id="description" colspan="3">
+              <td id="description" colspan="3">
                 PopulateDescription
               </td>
             </tr>
             <tr class="table-light">
-              <td scope="col">
+              <td>
                 <h4>Chemicals</h4>
               </td>
-              <td scope="col" id="period">
+              <td id="period">
                 <h4>Quantity</h4>
               </td>
-              <td scope="col" id="period">
+              <td id="period">
                 <h4>Hazards</h4>
               </td>
             </tr>
             <tr class="table-light">
-              <td scope="col" id="chemcials">
-                PopulateChemicals
-              </td>
-              <td scope="col" id="quantity">
-                PopulateQuantity
-              </td>
-              <td scope="col" id="hazards">
-                PopulateHazards
-              </td>
+              <td id="chemcials">PopulateChemicals</td>
+              <td id="quantity">PopulateQuantity</td>
+              <td id="hazards">PopulateHazards</td>
             </tr>
             <tr class="table-light">
-              <td scope="col" id="LRborder" colspan="3">
+              <td id="LRborder" colspan="3">
                 <h4>Apparatus</h4>
               </td>
             </tr>
             <tr class="table-light">
-              <td scope="col" id="apparatus" colspan="3">
+              <td id="apparatus" colspan="3">
                 PopulateApparatus
               </td>
             </tr>
             <tr class="table-light">
-              <td scope="col" id="editButton" colspan="3">
+              <td id="editButton" colspan="3">
                 <input
                   type="submit"
                   value="Print Practical"

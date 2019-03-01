@@ -3,6 +3,7 @@ const express = require("express");
 const compression = require("compression");
 const morgan = require("morgan");
 const path = require("path");
+const passport = require("passport");
 // const db = require("./Database/connection")
 
 const normalizePort = port => parseInt(port, 10);
@@ -23,8 +24,23 @@ const dev = app.get("env") !== "production";
   });
  // }
 
+ app.get('/auth/google',
+   passport.authenticate('google', { scope: ['profile'] }));
+
+ app.get('/auth/google/callback',
+   passport.authenticate('google', { failureRedirect: '/login' }),
+   function(req, res) {
+     // Successful authentication, redirect home.
+     res.redirect('/');
+   });
+
+
 const bodyParser = require('body-parser')
 app.use(bodyParser.json())
+
+
+
+
 //
 // app.get('/users', db.getUsers)
 // app.get('/users/:id', db.getUserById)
