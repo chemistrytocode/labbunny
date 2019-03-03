@@ -4,7 +4,7 @@ const compression = require("compression");
 const morgan = require("morgan");
 const path = require("path");
 const passport = require("passport");
-// const db = require("./Database/connection")
+const db = require("./database/dbConnect")
 
 const normalizePort = port => parseInt(port, 10);
 const PORT = normalizePort(process.env.PORT || 5000)
@@ -24,25 +24,23 @@ const dev = app.get("env") !== "production";
   });
  // }
 
- app.get('/auth/google',
-   passport.authenticate('google', { scope: ['profile'] }));
-
- app.get('/auth/google/callback',
-   passport.authenticate('google', { failureRedirect: '/login' }),
-   function(req, res) {
-     // Successful authentication, redirect home.
-     res.redirect('/');
-   });
+ // app.get('/auth/google',
+ //   passport.authenticate('google', { scope: ['profile'] }));
+ //
+ // app.get('/auth/google/callback',
+ //   passport.authenticate('google', { failureRedirect: '/login' }),
+ //   function(req, res) {
+ //     // Successful authentication, redirect home.
+ //     res.redirect('/order');
+ //   });
 
 
 const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 
+app.get('/getReqs', db.getReqs)
+app.post('/addReq', db.addReq)
 
-
-
-//
-// app.get('/users', db.getUsers)
 // app.get('/users/:id', db.getUserById)
 // app.get('/spaces', db.getSpaces)
 // app.get('/spaces/:id', db.getSpaceById)

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { GoogleLogout } from 'react-google-login';
 
 import "./bootstrap.css";
+import "./navbar.css";
 
 const logout = (response) => {
   console.log(response);

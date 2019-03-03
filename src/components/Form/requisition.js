@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import NavBar from '../NavBar/navbar'
-
+import "../NavBar/bootstrap.css";
 import "./requisitionStyling.css";
 
 class Requisition extends Component {
@@ -35,7 +35,7 @@ class Requisition extends Component {
     };
 
     console.log(data);
-    fetch("http://localhost:5000/order", {
+    fetch("http://localhost:5000/addReq", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)

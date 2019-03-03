@@ -9,12 +9,13 @@ table {
 
 table,
 #fullBorder,
-#description,
-#apparatus,
-#chemcials,
-#quantity,
-#hazards {
+#upDescription,
+#upApparatus,
+#upChemcials,
+#upQuantity,
+#upHazards {
   border: 2px solid black;
+  color: black;
 }
 
 #LRborder {

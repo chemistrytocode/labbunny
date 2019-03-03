@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import NavBar from '../NavBar/navbar'
 
 import "./upcomingStyling.css";
+import "../NavBar/bootstrap.css";
 
 class Practical extends Component {
   render() {
@@ -44,7 +45,7 @@ class Practical extends Component {
               </td>
             </tr>
             <tr class="table-light">
-              <td id="description" colspan="3">
+              <td id="upDescription" colspan="3">
                 PopulateDescription
               </td>
             </tr>
@@ -52,17 +53,17 @@ class Practical extends Component {
               <td>
                 <h4>Chemicals</h4>
               </td>
-              <td id="period">
+              <td id="upQuantity">
                 <h4>Quantity</h4>
               </td>
-              <td id="period">
+              <td id="upPeriod">
                 <h4>Hazards</h4>
               </td>
             </tr>
             <tr class="table-light">
-              <td id="chemcials">PopulateChemicals</td>
-              <td id="quantity">PopulateQuantity</td>
-              <td id="hazards">PopulateHazards</td>
+              <td id="upChemcials">PopulateChemicals</td>
+              <td id="upQuantity">PopulateQuantity</td>
+              <td id="upHazards">PopulateHazards</td>
             </tr>
             <tr class="table-light">
               <td id="LRborder" colspan="3">
@@ -70,7 +71,7 @@ class Practical extends Component {
               </td>
             </tr>
             <tr class="table-light">
-              <td id="apparatus" colspan="3">
+              <td id="upApparatus" colspan="3">
                 PopulateApparatus
               </td>
             </tr>

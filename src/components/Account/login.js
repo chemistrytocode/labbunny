@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import GoogleLogin from "react-google-login";
 import "./login.css";
+import "../NavBar/bootstrap.css";
 
 const responseGoogle = response => {
   console.log(response);

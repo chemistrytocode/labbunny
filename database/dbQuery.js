@@ -1,34 +1,26 @@
-const Pool = require("pg").Pool;
-const pool = new Pool({
-  user: "oyznzsbotwwyai",
-  host: "ec2-54-228-224-37.eu-west-1.compute.amazonaws.com",
-  database: "d81q34vh3prve",
-  password: "bdfda2a5290dd59d7b7d239493f22d63c856cea37300bcda0326894f87b1780c",
-  port: 5432,
-  ssl: true
-});
+import connect from "dbConnect";
 
 // Connect to DB:
 // heroku pg:psql postgresql-metric-97293 --app labbunny
 
-const connect = () => {
-  return pool
-}
+var pool = connect()
+
+console.log("Hello to the New World");
 
 const getReqs = (request, response) => {
-  pool.query('SELECT * FROM orders', (error, results) => {
+  pool.query('SELECT * FROM requisitions', (error, results) => {
     if (error) {
       throw error
     }
     response.status(200).json(results.rows)
+    // JSON.stringify(thing)
   })
 }
 
 const addReq = (request, response) => {
-  console.log("AddReq")
   const { teacher, room, description, fileUpload, chemical, quantity, allocation, hazards, sets, apparatus, addNotes } = request.body
 
-  pool.query(`INSERT INTO orders (name, room, description, fileUpload, chemical, quantity, allocation, hazards, sets, apparatus, addNotes) VALUES (
+  pool.query(`INSERT INTO spaces (name, room, description, fileUpload, chemical, quantity, allocation, hazards, sets, apparatus, addNotes) VALUES (
     '${name}',
     '${room}',
     '${description}',
