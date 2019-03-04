@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import NavBar from '../NavBar/navbar'
+import NavBar from "../NavBar/navbar";
 import "../NavBar/bootstrap.css";
 import "./requisitionStyling.css";
 
@@ -20,9 +20,10 @@ class Requisition extends Component {
   handleSubmit(event) {
     event.preventDefault();
     var data = {
-      name: this.state.name,
+      teacher: this.state.teacher,
       room: this.state.room,
       dateReq: this.state.dateReq,
+      period: this.state.period,
       description: this.state.description,
       fileupload: this.state.fileUpload,
       chemical: this.state.chemical,
@@ -30,20 +31,20 @@ class Requisition extends Component {
       allocation: this.state.allocation,
       hazards: this.state.hazards,
       sets: this.state.sets,
-      apparatus: this.state.doc,
-      addNotes: this.state.doc
+      apparatus: this.state.apparatus,
+      addNotes: this.state.addNotes
     };
-
     console.log(data);
-    fetch("http://localhost:5000/addReq", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
+    fetch(`http://localhost:5000/addReq`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(data)
-    });
+    }).then(response => response)
   }
 
   logChange(e) {
     this.setState({ [e.target.name]: e.target.value });
+    console.log({ [e.target.name]: e.target.value });
   }
 
   render() {
@@ -56,14 +57,14 @@ class Requisition extends Component {
               <div class="row form">
                 <div class="col-md-3">
                   <div class="form-group">
-                    <label id="name" class="col-form-label">
-                      Name:
+                    <label id="teacher" class="col-form-label">
+                      Teacher:
                     </label>
                     <input
                       type="text"
                       class="form-control"
-                      placeholder="Enter Name"
-                      name="name"
+                      placeholder="Enter Teacher's Name"
+                      name="teacher"
                       onChange={this.logChange}
                     />
                   </div>
@@ -90,7 +91,7 @@ class Requisition extends Component {
                     <input
                       type="date"
                       class="form-control col-sm"
-                      name="date"
+                      name="dateReq"
                       onChange={this.logChange}
                     />
                   </div>
@@ -214,6 +215,7 @@ class Requisition extends Component {
                       class="form-control col"
                       id="exampleTextarea"
                       rows="6"
+                      name="apparatus"
                       onChange={this.logChange}
                     />
                   </div>
@@ -227,6 +229,7 @@ class Requisition extends Component {
                       class="form-control col"
                       id="exampleTextarea"
                       rows="6"
+                      name="addNotes"
                       onChange={this.logChange}
                     />
                   </div>

@@ -12,41 +12,48 @@ const pool = new Pool({
 // heroku pg:psql postgresql-metric-97293 --app labbunny
 
 const connect = () => {
-  return pool
-}
+  return pool;
+};
 
 const getReqs = (request, response) => {
-  pool.query('SELECT * FROM orders', (error, results) => {
+  pool.query("SELECT * FROM orders", (error, results) => {
     if (error) {
-      throw error
+      throw error;
     }
-    response.status(200).json(results.rows)
-  })
-}
+    response.status(200).json(results.rows);
+  });
+};
 
 const addReq = (request, response) => {
-  console.log("AddReq")
-  const { teacher, room, description, fileUpload, chemical, quantity, allocation, hazards, sets, apparatus, addNotes } = request.body
+  console.log("AddReq");
+  const {
+    teacher,
+    room,
+    dateReq,
+    period,
+    description,
+    fileUpload,
+    chemical,
+    quantity,
+    allocation,
+    sets,
+    hazards,
+    apparatus,
+    addNotes
+  } = request.body;
 
-  pool.query(`INSERT INTO orders (name, room, description, fileUpload, chemical, quantity, allocation, hazards, sets, apparatus, addNotes) VALUES (
-    '${name}',
-    '${room}',
-    '${description}',
-    '${fileUpload}',
-    '${chemical}',
-    '${quantity}',
-    '${allocation}'),
-    '${hazards}'),
-    '${sets}'),
-    '${apparatus}'),
-    '${addNotes}')`,
+  pool.query(
+    `INSERT INTO orders (teacher, room, dateReq, period, description, fileUpload, chemical, quantity, allocation, sets, hazards, apparatus, addNotes) VALUES ('${teacher}', '${room}', '${dateReq}', '${period}', '${description}', '${fileUpload}', '${chemical}', '${quantity}', '${allocation}', '${sets}', '${hazards}', '${apparatus}', '${addNotes}')`,
     (error, results) => {
-    if (error) {
-      throw error
+      if (error) {
+        console.log("error thrown at add query");
+        console.log(error);
+        throw error;
+      }
+      response.status(201).send(`Submission Successful`);
     }
-    response.status(201).send(`Submission Successful`)
-  })
-}
+  );
+};
 
 // const getUserById = (request, response) => {
 //   const id = parseInt(request.params.id)
@@ -104,9 +111,7 @@ const addReq = (request, response) => {
 //   })
 // }
 
-
-
 module.exports = {
   getReqs,
   addReq
-}
+};

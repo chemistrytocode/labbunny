@@ -8,20 +8,21 @@ CREATE TABLE users (
 
 CREATE TABLE orders (
     id SERIAL,
-    name VARCHAR(256),
+    teacher VARCHAR(256),
     room VARCHAR(128),
     dateReq DATE,
-    period int,
+    period VARCHAR(128),
     description VARCHAR(1024),
     fileupload bytea,
     chemical VARCHAR(1024),
     quantity VARCHAR(128),
     allocation VARCHAR(128),
     hazards VARCHAR(1024),
-    doc VARCHAR(128),
-    sets int,
+    sets VARCHAR(128),
     apparatus VARCHAR(1024),
     addNotes VARCHAR(1024),
     userId int,
     PRIMARY KEY (id),
     FOREIGN KEY (userId) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE);
+
+INSERT INTO orders (teacher, room, period, description, chemical, quantity, allocation, hazards, sets, apparatus, addnotes) VALUES ('Paul', 'OC1', 1, 'Test Submission', 'Hydrochloric Acid', '2dm3', 'bulk', 'Corrosive', 16, 'Glassware', 'Noting to add');
