@@ -15,8 +15,8 @@ class App extends Component {
         <Switch>
           <div>
             <NavBar/>
-            <Route exact path="/" component={Requisition} />
-            <Route exact path="/order" component={Requisition} />
+            <Route exact path="/" component={Login} />
+            <Route path="/order" component={Requisition} />
             <Route path="/upcoming" component={UpcomingWeek} />
             <Route path="/feedback" component={Feedback} />
             <Route path="/day" component={UpcomingDay} />

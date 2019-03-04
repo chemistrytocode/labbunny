@@ -39,8 +39,7 @@ const addReq = (request, response) => {
     sets,
     hazards,
     apparatus,
-    addNotes
-  } = request.body;
+    addNotes } = request.body;
 
   pool.query(
     `INSERT INTO orders (teacher, room, dateReq, period, description, fileUpload, chemical, quantity, allocation, sets, hazards, apparatus, addNotes) VALUES ('${teacher}', '${room}', '${dateReq}', '${period}', '${description}', '${fileUpload}', '${chemical}', '${quantity}', '${allocation}', '${sets}', '${hazards}', '${apparatus}', '${addNotes}')`,
