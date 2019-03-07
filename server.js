@@ -38,8 +38,10 @@ const dev = app.get("env") !== "production";
 const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 
-app.get('/getReqs', db.getReqs)
-app.post('/addReq', db.addReq)
+app.get('/reqs', db.getReqs)
+app.get('/reqs/:id', db.getReqsById)
+app.get('/reqs/:date', db.getReqsByDate)
+app.post('/reqs', db.addReq)
 
 // app.get('/users/:id', db.getUserById)
 // app.get('/spaces', db.getSpaces)

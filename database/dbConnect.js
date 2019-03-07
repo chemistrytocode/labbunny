@@ -24,6 +24,29 @@ const getReqs = (request, response) => {
   });
 };
 
+const getReqsById = (request, response) => {
+  const id = parseInt(request.params.id)
+  pool.query(`SELECT * FROM orders WHERE (id) = ${id}`, (error, results) => {
+    if (error) {
+      throw error
+    }
+    response.status(200).json(results.rows)
+    // JSON.stringify(thing)
+  })
+}
+
+const getReqsByDate = (request, response) => {
+  const date = request.params.date
+  pool.query(`SELECT * FROM orders WHERE (dateReq) = ${date}`, (error, results) => {
+    if (error) {
+      throw error
+    }
+    response.status(200).json(results.rows)
+    // JSON.stringify(thing)
+  })
+}
+
+
 const addReq = (request, response) => {
   console.log("AddReq");
   const {
@@ -112,5 +135,7 @@ const addReq = (request, response) => {
 
 module.exports = {
   getReqs,
-  addReq
+  addReq,
+  getReqsById,
+  getReqsByDate
 };
