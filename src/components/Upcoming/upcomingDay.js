@@ -1,10 +1,17 @@
-import React, { Component } from "react"
+import React, { Component } from "react";
 import Practical from "./practical";
 import "./upcomingStyling.css";
 
-
-
 class UpcomingDay extends Component {
+  componentDidMount() {
+    const { id } = this.props.match.params;
+
+    fetch(`http://localhost:5000/reqs/${id}`)
+      .then(response => response.json())
+      .then(practicals => {
+        this.setState({ practicals: practicals[0] });
+      });
+  }
   render() {
     return (
       <div id="upcomingContainer" class="col-sm-12">

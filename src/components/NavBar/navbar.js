@@ -29,6 +29,9 @@ class NavBar extends Component {
             <li id="navbar-brand">
               <Link to={`/feedback`}>Submit Feedback</Link>
             </li>
+            <li id="navbar-brand">
+              <Link to={`/upcoming/:id`}>Upcoming Day</Link>
+            </li>
           </ul>
         </nav>
       </div>

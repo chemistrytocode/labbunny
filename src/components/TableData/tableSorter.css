@@ -10,6 +10,11 @@
   border-radius: 25px;
 }
 
+#innerEachPractical:hover {
+  background-color: gold;
+  cursor: pointer;
+}
+
 #innerEachPractical {
   background-color: #fff;
   padding: 10px;
