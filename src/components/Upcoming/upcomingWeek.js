@@ -16,243 +16,240 @@ class UpcomingWeek extends Component {
   }
 
   componentDidMount() {
-    fetch("https://localhost:5000/reqs")
+    fetch("http://localhost:5000/reqs")
       .then(response => response.json())
       .then(practicals => {
         this.setState({ practicals: practicals });
       });
   }
-
   render() {
-    // const practicals = this.state
-    // Mocked Practicals
-    const practicals = [
-      {
-        id: 1,
-        teacher: "Paul",
-        period: "1",
-        form: "1XX",
-        dateReq: "2019-03-04"
-      },
-      {
-        id: 2,
-        teacher: "James",
-        period: "2",
-        form: "U6XX",
-        dateReq: "2019-03-05"
-      },
-      {
-        id: 3,
-        teacher: "Tabitha",
-        period: "3",
-        form: "L6XX",
-        dateReq: "2019-03-06"
-      },
-      {
-        id: 4,
-        teacher: "Chris",
-        period: "4",
-        form: "4XX",
-        dateReq: "2019-03-07"
-      },
-      {
-        id: 5,
-        teacher: "Megan",
-        period: "5",
-        form: "2XX",
-        dateReq: "2019-03-08"
-      },
-      {
-        id: 6,
-        teacher: "Andy",
-        period: "6",
-        form: "3XX",
-        dateReq: "2019-03-09"
-      },
-      {
-        id: 7,
-        teacher: "Robin",
-        period: "7",
-        form: "U6XX",
-        dateReq: "2019-03-11"
-      },
-      {
-        id: 8,
-        teacher: "Jonathan",
-        period: "8",
-        form: "L6XX",
-        dateReq: "2019-03-12"
-      },
-      {
-        id: 9,
-        teacher: "Paul",
-        period: "8",
-        form: "2XX",
-        dateReq: "2019-03-12"
-      },
-      {
-        id: 10,
-        teacher: "James",
-        period: "7",
-        form: "1XX",
-        dateReq: "2019-03-11"
-      },
-      {
-        id: 11,
-        teacher: "Tabitha",
-        period: "6",
-        form: "1XX",
-        dateReq: "2019-03-09"
-      },
-      {
-        id: 12,
-        teacher: "Chris",
-        period: "5",
-        form: "3XX",
-        dateReq: "2019-03-08"
-      },
-      {
-        id: 13,
-        teacher: "Megan",
-        period: "4",
-        form: "L6XX",
-        dateReq: "2019-03-07"
-      },
-      {
-        id: 14,
-        teacher: "Andy",
-        period: "3",
-        form: "L6XX",
-        dateReq: "2019-03-06"
-      },
-      {
-        id: 15,
-        teacher: "Robin",
-        period: "2",
-        form: "2XX",
-        dateReq: "2019-03-05"
-      },
-      {
-        id: 16,
-        teacher: "Jonathan",
-        period: "1",
-        form: "2XX",
-        dateReq: "2019-03-04"
-      },
-      {
-        id: 17,
-        teacher: "Paul",
-        period: "1",
-        form: "5XX",
-        dateReq: "2019-03-04"
-      },
-      {
-        id: 18,
-        teacher: "James",
-        period: "2",
-        form: "5XX",
-
-        dateReq: "2019-03-05"
-      },
-      {
-        id: 19,
-        teacher: "Tabitha",
-        period: "3",
-        form: "5XX",
-        dateReq: "2019-03-06"
-      },
-      {
-        id: 20,
-        teacher: "Chris",
-        period: "4",
-        form: "2XX",
-        dateReq: "2019-03-07"
-      },
-      {
-        id: 21,
-        teacher: "Megan",
-        period: "5",
-        form: "L6XX",
-        dateReq: "2019-03-08"
-      },
-      {
-        id: 22,
-        teacher: "Andy",
-        period: "6",
-        form: "U6XX",
-        dateReq: "2019-03-09"
-      },
-      {
-        id: 23,
-        teacher: "Robin",
-        period: "7",
-        form: "3XX",
-        dateReq: "2019-03-11"
-      },
-      {
-        id: 24,
-        teacher: "Jonathan",
-        period: "8",
-        form: "PROJECT",
-        dateReq: "2019-03-12"
-      },
-      {
-        id: 25,
-        teacher: "Paul",
-        period: "8",
-        form: "3XX",
-        dateReq: "2019-03-12"
-      },
-      {
-        id: 26,
-        teacher: "James",
-        period: "7",
-        form: "2XX",
-        dateReq: "2019-03-11"
-      },
-      {
-        id: 27,
-        teacher: "Tabitha",
-        period: "6",
-        form: "2XX",
-        dateReq: "2019-03-09"
-      },
-      {
-        id: 28,
-        teacher: "Chris",
-        period: "5",
-        form: "1XX",
-        dateReq: "2019-03-08"
-      },
-      {
-        id: 29,
-        teacher: "Megan",
-        period: "4",
-        form: "1XX",
-        dateReq: "2019-03-07"
-      },
-      {
-        id: 30,
-        teacher: "Andy",
-        period: "3",
-        form: "4XX",
-        dateReq: "2019-03-06"
-      },
-      {
-        id: 31,
-        teacher: "Robin",
-        period: "2",
-        form: "4XX",
-        dateReq: "2019-03-05"
-      },
-      {
-        id: 32,
-        teacher: "Jonathan",
-        period: "1",
-        form: "3XX",
-        dateReq: "2019-03-04"
-      }
-    ];
+    const { practicals } = this.state;
+    //   {
+    //     id: 1,
+    //     teacher: "Paul",
+    //     period: "1",
+    //     form: "1XX",
+    //     dateReq: "2019-03-04"
+    //   },
+    //   {
+    //     id: 2,
+    //     teacher: "James",
+    //     period: "2",
+    //     form: "U6XX",
+    //     dateReq: "2019-03-05"
+    //   },
+    //   {
+    //     id: 3,
+    //     teacher: "Tabitha",
+    //     period: "3",
+    //     form: "L6XX",
+    //     dateReq: "2019-03-06"
+    //   },
+    //   {
+    //     id: 4,
+    //     teacher: "Chris",
+    //     period: "4",
+    //     form: "4XX",
+    //     dateReq: "2019-03-07"
+    //   },
+    //   {
+    //     id: 5,
+    //     teacher: "Megan",
+    //     period: "5",
+    //     form: "2XX",
+    //     dateReq: "2019-03-08"
+    //   },
+    //   {
+    //     id: 6,
+    //     teacher: "Andy",
+    //     period: "6",
+    //     form: "3XX",
+    //     dateReq: "2019-03-09"
+    //   },
+    //   {
+    //     id: 7,
+    //     teacher: "Robin",
+    //     period: "7",
+    //     form: "U6XX",
+    //     dateReq: "2019-03-11"
+    //   },
+    //   {
+    //     id: 8,
+    //     teacher: "Jonathan",
+    //     period: "8",
+    //     form: "L6XX",
+    //     dateReq: "2019-03-12"
+    //   },
+    //   {
+    //     id: 9,
+    //     teacher: "Paul",
+    //     period: "8",
+    //     form: "2XX",
+    //     dateReq: "2019-03-12"
+    //   },
+    //   {
+    //     id: 10,
+    //     teacher: "James",
+    //     period: "7",
+    //     form: "1XX",
+    //     dateReq: "2019-03-11"
+    //   },
+    //   {
+    //     id: 11,
+    //     teacher: "Tabitha",
+    //     period: "6",
+    //     form: "1XX",
+    //     dateReq: "2019-03-09"
+    //   },
+    //   {
+    //     id: 12,
+    //     teacher: "Chris",
+    //     period: "5",
+    //     form: "3XX",
+    //     dateReq: "2019-03-08"
+    //   },
+    //   {
+    //     id: 13,
+    //     teacher: "Megan",
+    //     period: "4",
+    //     form: "L6XX",
+    //     dateReq: "2019-03-07"
+    //   },
+    //   {
+    //     id: 14,
+    //     teacher: "Andy",
+    //     period: "3",
+    //     form: "L6XX",
+    //     dateReq: "2019-03-06"
+    //   },
+    //   {
+    //     id: 15,
+    //     teacher: "Robin",
+    //     period: "2",
+    //     form: "2XX",
+    //     dateReq: "2019-03-05"
+    //   },
+    //   {
+    //     id: 16,
+    //     teacher: "Jonathan",
+    //     period: "1",
+    //     form: "2XX",
+    //     dateReq: "2019-03-04"
+    //   },
+    //   {
+    //     id: 17,
+    //     teacher: "Paul",
+    //     period: "1",
+    //     form: "5XX",
+    //     dateReq: "2019-03-04"
+    //   },
+    //   {
+    //     id: 18,
+    //     teacher: "James",
+    //     period: "2",
+    //     form: "5XX",
+    //
+    //     dateReq: "2019-03-05"
+    //   },
+    //   {
+    //     id: 19,
+    //     teacher: "Tabitha",
+    //     period: "3",
+    //     form: "5XX",
+    //     dateReq: "2019-03-06"
+    //   },
+    //   {
+    //     id: 20,
+    //     teacher: "Chris",
+    //     period: "4",
+    //     form: "2XX",
+    //     dateReq: "2019-03-07"
+    //   },
+    //   {
+    //     id: 21,
+    //     teacher: "Megan",
+    //     period: "5",
+    //     form: "L6XX",
+    //     dateReq: "2019-03-08"
+    //   },
+    //   {
+    //     id: 22,
+    //     teacher: "Andy",
+    //     period: "6",
+    //     form: "U6XX",
+    //     dateReq: "2019-03-09"
+    //   },
+    //   {
+    //     id: 23,
+    //     teacher: "Robin",
+    //     period: "7",
+    //     form: "3XX",
+    //     dateReq: "2019-03-11"
+    //   },
+    //   {
+    //     id: 24,
+    //     teacher: "Jonathan",
+    //     period: "8",
+    //     form: "PROJECT",
+    //     dateReq: "2019-03-12"
+    //   },
+    //   {
+    //     id: 25,
+    //     teacher: "Paul",
+    //     period: "8",
+    //     form: "3XX",
+    //     dateReq: "2019-03-12"
+    //   },
+    //   {
+    //     id: 26,
+    //     teacher: "James",
+    //     period: "7",
+    //     form: "2XX",
+    //     dateReq: "2019-03-11"
+    //   },
+    //   {
+    //     id: 27,
+    //     teacher: "Tabitha",
+    //     period: "6",
+    //     form: "2XX",
+    //     dateReq: "2019-03-09"
+    //   },
+    //   {
+    //     id: 28,
+    //     teacher: "Chris",
+    //     period: "5",
+    //     form: "1XX",
+    //     dateReq: "2019-03-08"
+    //   },
+    //   {
+    //     id: 29,
+    //     teacher: "Megan",
+    //     period: "4",
+    //     form: "1XX",
+    //     dateReq: "2019-03-07"
+    //   },
+    //   {
+    //     id: 30,
+    //     teacher: "Andy",
+    //     period: "3",
+    //     form: "4XX",
+    //     dateReq: "2019-03-06"
+    //   },
+    //   {
+    //     id: 31,
+    //     teacher: "Robin",
+    //     period: "2",
+    //     form: "4XX",
+    //     dateReq: "2019-03-05"
+    //   },
+    //   {
+    //     id: 32,
+    //     teacher: "Jonathan",
+    //     period: "1",
+    //     form: "3XX",
+    //     dateReq: "2019-03-04"
+    //   }
+    // ];
     const p1m = [];
     const p1tu = [];
     const p1w = [];
@@ -305,7 +302,9 @@ class UpcomingWeek extends Component {
 
     practicals.map(eachPractical => {
       var period = eachPractical.period;
-      var day = new Date(eachPractical.dateReq).getDay();
+      var day = new Date(eachPractical.datereq).getDay();
+      console.log(period)
+      console.log(day)
       // Monday
       if (period == 1 && day == 1) {
         p1m.push(eachPractical);
