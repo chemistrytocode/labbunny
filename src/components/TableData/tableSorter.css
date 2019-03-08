@@ -1,0 +1,26 @@
+#outerEachPractical {
+  margin: 5px;
+  background-color: #4267b2;
+  display: inline-block;
+}
+
+#outerEachPractical,
+#innerEachPractical {
+  border: 3px solid black;
+  border-radius: 25px;
+}
+
+#innerEachPractical {
+  background-color: #fff;
+  padding: 10px;
+}
+
+#eachTeacher {
+  text-decoration: underline;
+  font-size: 125%;
+}
+
+#eachTeacher,
+#eachForm {
+  margin: 0;
+}

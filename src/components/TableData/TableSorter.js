@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 // import upcomingWeekInterface from '../../interface/upcomingWeekInterface'
 
-import "./tableData.css";
+import "./tableSorter.css";
 
 class TableSorter extends Component {
   render() {
@@ -10,9 +10,10 @@ class TableSorter extends Component {
       <div>
         {this.props.p1practicals.map(eachPractical => {
           return (
-            <div id="eachPost">
-              <div id="innerPost">
-                <p id="userFeed">{eachPractical.teacher}</p>
+            <div id="outerEachPractical">
+              <div id="innerEachPractical">
+                <p id="eachTeacher">{eachPractical.teacher}</p>
+                <p id="eachForm">{eachPractical.form}</p>
               </div>
             </div>
           );
