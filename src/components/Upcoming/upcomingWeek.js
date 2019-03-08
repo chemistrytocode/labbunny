@@ -18,7 +18,7 @@ class UpcomingWeek extends Component {
 
 
   componentDidMount() {
-    fetch("https://localhost:5001/api/Acebook")
+    fetch("https://localhost:5000/reqs")
       .then(response => response.json())
       .then(practicals => {
         this.setState({ practicals: practicals });
@@ -115,19 +115,71 @@ class UpcomingWeek extends Component {
     const p7s = []
     const p8m = []
     const p8tu = []
+    const p8w = []
     const p8 = []
     const p8th = []
     const p8f = []
     const p8s = []
+    console.log(new Date("2019-03-07").getDay());
     practicals.map(eachPractical => {
-      if (eachPractical.period === "1") { p1m.push(eachPractical) }
-      if (eachPractical.period === "2") { p2m.push(eachPractical) }
-      if (eachPractical.period === "3") { p3m.push(eachPractical) }
-      if (eachPractical.period === "4") { p4m.push(eachPractical) }
-      if (eachPractical.period === "5") { p5m.push(eachPractical) }
-      if (eachPractical.period === "6") { p6m.push(eachPractical) }
-      if (eachPractical.period === "7") { p7m.push(eachPractical) }
-      if (eachPractical.period === "8") { p8m.push(eachPractical) }
+    var period = eachPractical.period
+    var day = new Date(eachPractical.dateReq).getDay();
+    console.log(day)
+    console.log(period)
+    // Monday
+    if (period == 1 && day == 1) { p1m.push(eachPractical) }
+    if (period == 2 && day == 1) { p2m.push(eachPractical) }
+    if (period == 3 && day == 1) { p3m.push(eachPractical) }
+    if (period == 4 && day == 1) { p4m.push(eachPractical) }
+    if (period == 5 && day == 1) { p5m.push(eachPractical) }
+    if (period == 6 && day == 1) { p6m.push(eachPractical) }
+    if (period == 7 && day == 1) { p7m.push(eachPractical) }
+    if (period == 8 && day == 1) { p8m.push(eachPractical) }
+    // Tuesday
+    if (period == 1 && day == 2) { p1tu.push(eachPractical) }
+    if (period == 2 && day == 2) { p2tu.push(eachPractical) }
+    if (period == 3 && day == 2) { p3tu.push(eachPractical) }
+    if (period == 4 && day == 2) { p4tu.push(eachPractical) }
+    if (period == 5 && day == 2) { p5tu.push(eachPractical) }
+    if (period == 6 && day == 2) { p6tu.push(eachPractical) }
+    if (period == 7 && day == 2) { p7tu.push(eachPractical) }
+    if (period == 8 && day == 2) { p8tu.push(eachPractical) }
+    // Wednesday
+    if (period == 1 && day == 3) { p1w.push(eachPractical) }
+    if (period == 2 && day == 3) { p2w.push(eachPractical) }
+    if (period == 3 && day == 3) { p3w.push(eachPractical) }
+    if (period == 4 && day == 3) { p4w.push(eachPractical) }
+    if (period == 5 && day == 3) { p5w.push(eachPractical) }
+    if (period == 6 && day == 3) { p6w.push(eachPractical) }
+    if (period == 7 && day == 3) { p7w.push(eachPractical) }
+    if (period == 8 && day == 3) { p8w.push(eachPractical) }
+    // Thursday
+    if (period == 1 && day == 4) { p1th.push(eachPractical) }
+    if (period == 2 && day == 4) { p2th.push(eachPractical) }
+    if (period == 3 && day == 4) { p3th.push(eachPractical) }
+    if (period == 4 && day == 4) { p4th.push(eachPractical) }
+    if (period == 5 && day == 4) { p5th.push(eachPractical) }
+    if (period == 6 && day == 4) { p6th.push(eachPractical) }
+    if (period == 7 && day == 4) { p7th.push(eachPractical) }
+    if (period == 8 && day == 4) { p8th.push(eachPractical) }
+    // Friday
+    if (period == 1 && day == 5) { p1f.push(eachPractical) }
+    if (period == 2 && day == 5) { p2f.push(eachPractical) }
+    if (period == 3 && day == 5) { p3f.push(eachPractical) }
+    if (period == 4 && day == 5) { p4f.push(eachPractical) }
+    if (period == 5 && day == 5) { p5f.push(eachPractical) }
+    if (period == 6 && day == 5) { p6f.push(eachPractical) }
+    if (period == 7 && day == 5) { p7f.push(eachPractical) }
+    if (period == 8 && day == 5) { p8f.push(eachPractical) }
+    // Saturday
+    if (period == 1 && day == 6) { p1s.push(eachPractical) }
+    if (period == 2 && day == 6) { p2s.push(eachPractical) }
+    if (period == 3 && day == 6) { p3s.push(eachPractical) }
+    if (period == 4 && day == 6) { p4s.push(eachPractical) }
+    if (period == 5 && day == 6) { p5s.push(eachPractical) }
+    if (period == 6 && day == 6) { p6s.push(eachPractical) }
+    if (period == 7 && day == 6) { p7s.push(eachPractical) }
+    if (period == 8 && day == 6) { p8s.push(eachPractical) }
     })
 
     return (
@@ -174,29 +226,29 @@ class UpcomingWeek extends Component {
               <tr class="table-light">
                 <td id="LRborder">1</td>
                 <td id="p1m"><TableSorter p1practicals ={p1m}/></td>
-                <td id="p1tu" />
-                <td id="p1w" />
-                <td id="p1th" />
-                <td id="p1f" />
-                <td id="p1s" />
+                <td id="p1tu"><TableSorter p1practicals ={p1tu}/></td>
+                <td id="p1w"><TableSorter p1practicals ={p1w}/></td>
+                <td id="p1th"><TableSorter p1practicals ={p1th}/></td>
+                <td id="p1f"><TableSorter p1practicals ={p1f}/></td>
+                <td id="p1s"><TableSorter p1practicals ={p1s}/></td>
               </tr>
               <tr class="table-light">
                 <td id="LRborder">2</td>
                 <td id="p2m"><TableSorter p1practicals ={p2m}/></td>
-                <td id="p2tu" />
-                <td id="p2w" />
-                <td id="p2th" />
-                <td id="p2f" />
-                <td id="p2s" />
+                <td id="p2tu"><TableSorter p1practicals ={p2tu}/></td>
+                <td id="p2w"><TableSorter p1practicals ={p2w}/></td>
+                <td id="p2th"><TableSorter p1practicals ={p2th}/></td>
+                <td id="p2f"><TableSorter p1practicals ={p2f}/></td>
+                <td id="p2s"><TableSorter p1practicals ={p2s}/></td>
               </tr>
               <tr class="table-light">
                 <td id="LRborder">3</td>
                 <td id="p3m"><TableSorter p1practicals ={p3m}/></td>
-                <td id="p3tu" />
-                <td id="p3w" />
-                <td id="p3th" />
-                <td id="p3f" />
-                <td id="p3s" />
+                <td id="p3tu"><TableSorter p1practicals ={p3tu}/></td>
+                <td id="p3w"><TableSorter p1practicals ={p3w}/></td>
+                <td id="p3th"><TableSorter p1practicals ={p3th}/></td>
+                <td id="p3f"><TableSorter p1practicals ={p3f}/></td>
+                <td id="p3s"><TableSorter p1practicals ={p3s}/></td>
               </tr>
               <tr class="table-success" id="fullBorder">
                 <td colspan="7" align="center">
@@ -206,20 +258,20 @@ class UpcomingWeek extends Component {
               <tr class="table-light">
                 <td id="LRborder">4</td>
                 <td id="p4m"><TableSorter p1practicals ={p4m}/></td>
-                <td id="p4tu" />
-                <td id="p4w" />
-                <td id="p4th" />
-                <td id="p4f" />
-                <td id="p4s" />
+                <td id="p4tu"><TableSorter p1practicals ={p4tu}/></td>
+                <td id="p4w"><TableSorter p1practicals ={p4w}/></td>
+                <td id="p4th"><TableSorter p1practicals ={p4th}/></td>
+                <td id="p4f"><TableSorter p1practicals ={p4f}/></td>
+                <td id="p4s"><TableSorter p1practicals ={p4s}/></td>
               </tr>
               <tr class="table-light">
                 <td id="LRborder">5</td>
                 <td id="p5m"><TableSorter p1practicals ={p5m}/></td>
-                <td id="p5tu" />
-                <td id="p5w" />
-                <td id="p5th" />
-                <td id="p5f" />
-                <td id="p5s" />
+                <td id="p5tu"><TableSorter p1practicals ={p5tu}/></td>
+                <td id="p5w"><TableSorter p1practicals ={p5w}/></td>
+                <td id="p5th"><TableSorter p1practicals ={p5th}/></td>
+                <td id="p5f"><TableSorter p1practicals ={p5f}/></td>
+                <td id="p5s"><TableSorter p1practicals ={p5s}/></td>
               </tr>
               <tr class="table-success" id="fullBorder">
                 <td colspan="7" align="center">
@@ -229,29 +281,31 @@ class UpcomingWeek extends Component {
               <tr class="table-light">
                 <td id="LRborder">6</td>
                 <td id="p6m"><TableSorter p1practicals ={p6m}/></td>
-                <td id="p6tu" />
-                <td id="p6w" />
-                <td id="p6th" />
-                <td id="p6f" />
-                <td id="p6s" />
+                <td id="p6tu"><TableSorter p1practicals ={p6tu}/></td>
+                <td id="p6w"><TableSorter p1practicals ={p6w}/></td>
+                <td id="p6th"><TableSorter p1practicals ={p6th}/></td>
+                <td id="p6f"><TableSorter p1practicals ={p6f}/></td>
+                <td id="p6s"><TableSorter p1practicals ={p6s}/></td>
               </tr>
               <tr class="table-light">
                 <td id="LRborder">7</td>
                 <td id="p7m"><TableSorter p1practicals ={p7m}/></td>
-                <td id="p7tu" />
-                <td id="p7w" />
-                <td id="p7th" />
-                <td id="p7f" />
-                <td id="p7s" />
+                <td id="p7tu"><TableSorter p1practicals ={p7tu}/></td>
+                <td id="p7w"><TableSorter p1practicals ={p7w}/></td>
+                <td id="p7th"><TableSorter p1practicals ={p7th}/></td>
+                <td id="p7f"><TableSorter p1practicals ={p7f}/></td>
+                <td id="p7s"><TableSorter p1practicals ={p7s}/></td>
+
               </tr>
               <tr class="table-light">
                 <td id="LRborder">8</td>
                 <td id="p8m"><TableSorter p1practicals ={p8m}/></td>
-                <td id="p8tu" />
-                <td id="p8w" />
-                <td id="p8th" />
-                <td id="p8f" />
-                <td id="p8s" />
+                <td id="p8tu"><TableSorter p1practicals ={p8tu}/></td>
+                <td id="p8w"><TableSorter p1practicals ={p8w}/></td>
+                <td id="p8th"><TableSorter p1practicals ={p8th}/></td>
+                <td id="p8f"><TableSorter p1practicals ={p8f}/></td>
+                <td id="p8s"><TableSorter p1practicals ={p8s}/></td>
+
               </tr>
             </thead>
           </table>

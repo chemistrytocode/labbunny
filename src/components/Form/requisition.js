@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import NavBar from "../NavBar/navbar";
-import "../NavBar/bootstrap.css";
 import "./requisitionStyling.css";
 
 class Requisition extends Component {

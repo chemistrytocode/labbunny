@@ -1,8 +1,5 @@
 import React, { Component } from "react";
-import NavBar from '../NavBar/navbar'
-
 import "./upcomingStyling.css";
-import "../NavBar/bootstrap.css";
 
 class Practical extends Component {
   render() {

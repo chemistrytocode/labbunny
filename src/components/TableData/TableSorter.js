@@ -11,7 +11,7 @@ class TableSorter extends Component {
         {this.props.p1practicals.map(eachPractical => {
           return (
             <div id="eachPost">
-              <div id id="innerPost">
+              <div id="innerPost">
                 <p id="userFeed">{eachPractical.teacher}</p>
               </div>
             </div>
