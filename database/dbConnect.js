@@ -25,35 +25,36 @@ const getReqs = (request, response) => {
 };
 
 const getReqsById = (request, response) => {
-  const id = parseInt(request.params.id)
+  const id = parseInt(request.params.id);
   pool.query(`SELECT * FROM orders WHERE (id) = ${id}`, (error, results) => {
     if (error) {
-      throw error
+      throw error;
     }
-    console.log(results.rows)
-    response.status(200).json(results.rows)
+    console.log(results.rows);
+    response.status(200).json(results.rows);
     // JSON.stringify(thing)
-  })
-}
+  });
+};
 
 const getReqsByDate = (request, response) => {
-  const date = request.params.date
-  pool.query(`SELECT * FROM orders WHERE (dateReq) = ${date}`, (error, results) => {
-    if (error) {
-      throw error
+  const date = request.params.date;
+  pool.query(
+    `SELECT * FROM orders WHERE (dateReq) = ${date}`,
+    (error, results) => {
+      if (error) {
+        throw error;
+      }
+      response.status(200).json(results.rows);
+      // JSON.stringify(thing)
     }
-    response.status(200).json(results.rows)
-    // JSON.stringify(thing)
-  })
-}
-
+  );
+};
 
 const addReq = (request, response) => {
-  console.log("AddReq");
   const {
     teacher,
     room,
-    datereq,
+    dateReq,
     period,
     description,
     form,
@@ -64,7 +65,8 @@ const addReq = (request, response) => {
     allocation,
     hazards,
     apparatus,
-    addNotes } = request.body;
+    addNotes
+  } = request.body;
 
   pool.query(
     `INSERT INTO orders (teacher, room, datereq, period, description, form, fileUpload, chemical, quantity, allocation, sets, hazards, apparatus, addNotes) VALUES ('${teacher}', '${room}', '${dateReq}', '${period}', '${description}', '${form}', '${fileUpload}', '${chemical}', '${quantity}', '${allocation}', '${sets}', '${hazards}', '${apparatus}', '${addNotes}')`,
@@ -72,6 +74,7 @@ const addReq = (request, response) => {
       if (error) {
         throw error;
       }
+      console.log(results.rows);
       response.status(201).send(`Submission Successful`);
     }
   );
