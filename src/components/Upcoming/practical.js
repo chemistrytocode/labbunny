@@ -3,13 +3,14 @@ import "./upcomingStyling.css";
 
 class Practical extends Component {
   render() {
+      const practical = this.props.practical
     return (
       <div id="upcomingContainer">
         <table class="table table-hover" id="fullBorder">
           <thead>
             <tr>
               <td id="fullBorder" colspan="3">
-                <h3>PopulateTeacher</h3>
+                <h3>{practical.teacher}</h3>
               </td>
             </tr>
             <tr class="table-light">
@@ -17,7 +18,7 @@ class Practical extends Component {
                 <h4>Form</h4>
               </td>
               <td id="period" colspan="2">
-                PopualteForm
+                {practical.form}
               </td>
             </tr>
             <tr class="table-light">
@@ -25,7 +26,7 @@ class Practical extends Component {
                 <h4>Period</h4>
               </td>
               <td id="period" colspan="2">
-                PopualtePeriod
+                {practical.period}
               </td>
             </tr>
             <tr class="table-light">
@@ -33,7 +34,7 @@ class Practical extends Component {
                 <h4>Sets</h4>
               </td>
               <td id="sets" colspan="2">
-                PopulateSets
+                {practical.sets}
               </td>
             </tr>
             <tr class="table-light">
@@ -43,7 +44,7 @@ class Practical extends Component {
             </tr>
             <tr class="table-light">
               <td id="upDescription" colspan="3">
-                PopulateDescription
+                {practical.description}
               </td>
             </tr>
             <tr class="table-light">
@@ -58,9 +59,9 @@ class Practical extends Component {
               </td>
             </tr>
             <tr class="table-light">
-              <td id="upChemcials">PopulateChemicals</td>
-              <td id="upQuantity">PopulateQuantity</td>
-              <td id="upHazards">PopulateHazards</td>
+              <td id="upChemcials">{practical.chemical}</td>
+              <td id="upQuantity">{practical.quantity}</td>
+              <td id="upHazards">{practical.hazards}</td>
             </tr>
             <tr class="table-light">
               <td id="LRborder" colspan="3">
@@ -69,7 +70,7 @@ class Practical extends Component {
             </tr>
             <tr class="table-light">
               <td id="upApparatus" colspan="3">
-                PopulateApparatus
+                {practical.apparatus}
               </td>
             </tr>
             <tr class="table-light">

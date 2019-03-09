@@ -3,16 +3,27 @@ import Practical from "./practical";
 import "./upcomingStyling.css";
 
 class UpcomingDay extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      practical: []
+    };
+  }
+
   componentDidMount() {
+
     const { id } = this.props.match.params;
 
     fetch(`http://localhost:5000/reqs/${id}`)
       .then(response => response.json())
-      .then(practicals => {
-        this.setState({ practicals: practicals[0] });
+      .then(practical => {
+        this.setState({ practical: practical[0] });
       });
   }
   render() {
+    const { practical } = this.state;
+
     return (
       <div id="upcomingContainer" class="col-sm-12">
         <h2> PopulateDate </h2>
@@ -74,7 +85,7 @@ class UpcomingDay extends Component {
           <div id="selectionContainer" class="col-sm-6">
             <div class="col-md-4">
               <h3>Details</h3>
-              <Practical />
+              <Practical practical={practical} />
             </div>
           </div>
         </div>

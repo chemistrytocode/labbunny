@@ -303,8 +303,7 @@ class UpcomingWeek extends Component {
     practicals.map(eachPractical => {
       var period = eachPractical.period;
       var day = new Date(eachPractical.datereq).getDay();
-      console.log(period)
-      console.log(day)
+
       // Monday
       if (period == 1 && day == 1) {
         p1m.push(eachPractical);
@@ -490,13 +489,13 @@ class UpcomingWeek extends Component {
           <table class="table table-hover">
             <thead>
               <tr>
-                <td id="fullBorder">Period</td>
-                <td id="fullBorder">Monday</td>
-                <td id="fullBorder">Tuesday</td>
-                <td id="fullBorder">Wednesday</td>
-                <td id="fullBorder">Thursday</td>
-                <td id="fullBorder">Friday</td>
-                <td id="fullBorder">Saturday</td>
+                <td id="fullBorder"><p id="period">Period</p></td>
+                <td id="fullBorder"><p id="monday">Monday</p><button class="btn btn-warning">Print All</button></td>
+                <td id="fullBorder"><p id="tuesday">Tuesday</p><button class="btn btn-warning">Print All</button></td>
+                <td id="fullBorder"><p id="wednesday">Wednesday</p><button class="btn btn-warning">Print All</button></td>
+                <td id="fullBorder"><p id="thursday">Thursday</p><button class="btn btn-warning">Print All</button></td>
+                <td id="fullBorder"><p id="friday">Friday</p><button class="btn btn-warning">Print All</button></td>
+                <td id="fullBorder"><p id="saturday">Saturday</p><button class="btn btn-warning">Print All</button></td>
               </tr>
               <tr class="table-light">
                 <td id="LRborder">1</td>

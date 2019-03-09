@@ -20,7 +20,6 @@ const getReqs = (request, response) => {
     if (error) {
       throw error;
     }
-    console.log(results.rows)
     response.status(200).json(results.rows);
   });
 };
@@ -31,6 +30,7 @@ const getReqsById = (request, response) => {
     if (error) {
       throw error
     }
+    console.log(results.rows)
     response.status(200).json(results.rows)
     // JSON.stringify(thing)
   })
@@ -53,24 +53,23 @@ const addReq = (request, response) => {
   const {
     teacher,
     room,
-    dateReq,
+    datereq,
     period,
     description,
+    form,
+    sets,
     fileUpload,
     chemical,
     quantity,
     allocation,
-    sets,
     hazards,
     apparatus,
     addNotes } = request.body;
 
   pool.query(
-    `INSERT INTO orders (teacher, room, dateReq, period, description, fileUpload, chemical, quantity, allocation, sets, hazards, apparatus, addNotes) VALUES ('${teacher}', '${room}', '${dateReq}', '${period}', '${description}', '${fileUpload}', '${chemical}', '${quantity}', '${allocation}', '${sets}', '${hazards}', '${apparatus}', '${addNotes}')`,
+    `INSERT INTO orders (teacher, room, datereq, period, description, form, fileUpload, chemical, quantity, allocation, sets, hazards, apparatus, addNotes) VALUES ('${teacher}', '${room}', '${dateReq}', '${period}', '${description}', '${form}', '${fileUpload}', '${chemical}', '${quantity}', '${allocation}', '${sets}', '${hazards}', '${apparatus}', '${addNotes}')`,
     (error, results) => {
       if (error) {
-        console.log("error thrown at add query");
-        console.log(error);
         throw error;
       }
       response.status(201).send(`Submission Successful`);

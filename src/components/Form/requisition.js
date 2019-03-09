@@ -23,6 +23,7 @@ class Requisition extends Component {
       dateReq: this.state.dateReq,
       period: this.state.period,
       description: this.state.description,
+      form: this.state.form,
       fileupload: this.state.fileUpload,
       chemical: this.state.chemical,
       quantity: this.state.quantity,
@@ -107,7 +108,7 @@ class Requisition extends Component {
                     />
                   </div>
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-6">
                   <div class="form-group">
                     <label id="description" class="col-form-label">
                       Practical Description:
@@ -117,6 +118,20 @@ class Requisition extends Component {
                       class="form-control col-sm"
                       placeholder="Enter Description"
                       name="description"
+                      onChange={this.logChange}
+                    />
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label id="form" class="col-form-label">
+                      Form Group:
+                    </label>
+                    <input
+                      type="text"
+                      class="form-control col-sm"
+                      placeholder="Enter Form"
+                      name="form"
                       onChange={this.logChange}
                     />
                   </div>

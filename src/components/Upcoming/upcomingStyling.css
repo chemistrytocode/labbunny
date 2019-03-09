@@ -23,6 +23,11 @@ table,
   border-right: 2px solid black;
 }
 
+#period, #monday, #tuesday, #wednesday, #thursday, #friday, #saturday {
+  font-size: 150%;
+  margin: 0px;
+}
+
 
 
 /* #p1m:hover,

@@ -13,6 +13,7 @@ CREATE TABLE orders (
     dateReq DATE,
     period VARCHAR(128),
     description VARCHAR(1024),
+    form VARCHAR(128),
     fileupload bytea,
     chemical VARCHAR(1024),
     quantity VARCHAR(128),
@@ -24,5 +25,3 @@ CREATE TABLE orders (
     userId int,
     PRIMARY KEY (id),
     FOREIGN KEY (userId) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE);
-
-INSERT INTO orders (teacher, room, period, description, chemical, quantity, allocation, hazards, sets, apparatus, addnotes) VALUES ('Paul', 'OC1', 1, 'Test Submission', 'Hydrochloric Acid', '2dm3', 'bulk', 'Corrosive', 16, 'Glassware', 'Noting to add');
