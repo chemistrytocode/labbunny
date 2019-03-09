@@ -97,7 +97,7 @@ class Requisition extends Component {
                 </div>
                 <div class="col-md-3">
                   <div class="form-group">
-                    <label id="period" class="col-form-label">
+                    <label id="formPeriod" class="col-form-label">
                       Period:
                     </label>
                     <input
@@ -124,7 +124,7 @@ class Requisition extends Component {
                 </div>
                 <div class="col-md-2">
                   <div class="form-group">
-                    <label id="form" class="col-form-label">
+                    <label id="formForm" class="col-form-label">
                       Form Group:
                     </label>
                     <input

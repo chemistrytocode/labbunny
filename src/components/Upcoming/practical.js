@@ -17,7 +17,7 @@ class Practical extends Component {
               <td id="LRborder">
                 <h4>Form</h4>
               </td>
-              <td id="period" colspan="2">
+              <td id="matchForm" colspan="2">
                 {practical.form}
               </td>
             </tr>
@@ -25,7 +25,7 @@ class Practical extends Component {
               <td id="LRborder">
                 <h4>Period</h4>
               </td>
-              <td id="period" colspan="2">
+              <td id="matchPeriod" colspan="2">
                 {practical.period}
               </td>
             </tr>
@@ -33,7 +33,7 @@ class Practical extends Component {
               <td id="LRborder">
                 <h4>Sets</h4>
               </td>
-              <td id="sets" colspan="2">
+              <td id="matchSets" colspan="2">
                 {practical.sets}
               </td>
             </tr>
@@ -43,37 +43,37 @@ class Practical extends Component {
               </td>
             </tr>
             <tr class="table-light">
-              <td id="upDescription" colspan="3">
+              <td id="matchDescription" colspan="3">
                 {practical.description}
               </td>
             </tr>
             <tr class="table-light">
-              <td>
+              <td id ="fullBorder">
                 <h4>Chemicals</h4>
               </td>
-              <td id="upQuantity">
+              <td id="fullBorder">
                 <h4>Quantity</h4>
               </td>
-              <td id="upPeriod">
+              <td id="fullBorder">
                 <h4>Hazards</h4>
               </td>
             </tr>
             <tr class="table-light">
-              <td id="upChemcials">{practical.chemical}</td>
-              <td id="upQuantity">{practical.quantity}</td>
-              <td id="upHazards">{practical.hazards}</td>
+              <td id="matchChemicals fullBorder">{practical.chemical}</td>
+              <td id="matchQuantity fullBorder">{practical.quantity}</td>
+              <td id="matchHazards fullBorder">{practical.hazards}</td>
             </tr>
             <tr class="table-light">
-              <td id="LRborder" colspan="3">
+              <td id="fullBorder" colspan="3">
                 <h4>Apparatus</h4>
               </td>
             </tr>
             <tr class="table-light">
-              <td id="upApparatus" colspan="3">
+              <td id="matchApparatus fullBorder" colspan="3">
                 {practical.apparatus}
               </td>
             </tr>
-            <tr class="table-light">
+            <tr class="table-light fullBorder">
               <td id="editButton" colspan="3">
                 <input
                   type="submit"

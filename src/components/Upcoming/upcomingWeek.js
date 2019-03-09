@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import TableSorter from "../TableData/TableSorter";
 import NavBar from "../NavBar/navbar";
+import TwelveWeeks from "../TableData/twelveWeeks";
+
 
 // import upcomingWeekInterface from '../../interface/upcomingWeekInterface'
 
@@ -11,6 +13,7 @@ class UpcomingWeek extends Component {
     super(props);
 
     this.state = {
+      weekDisplaying: new Date().toLocaleDateString(),
       practicals: []
     };
   }
@@ -24,124 +27,125 @@ class UpcomingWeek extends Component {
   }
   render() {
     const { practicals } = this.state;
+    // const practicals = [
     //   {
     //     id: 1,
     //     teacher: "Paul",
     //     period: "1",
     //     form: "1XX",
-    //     dateReq: "2019-03-04"
+    //     datereq: "2019-03-04"
     //   },
     //   {
     //     id: 2,
     //     teacher: "James",
     //     period: "2",
     //     form: "U6XX",
-    //     dateReq: "2019-03-05"
+    //     datereq: "2019-03-05"
     //   },
     //   {
     //     id: 3,
     //     teacher: "Tabitha",
     //     period: "3",
     //     form: "L6XX",
-    //     dateReq: "2019-03-06"
+    //     datereq: "2019-03-06"
     //   },
     //   {
     //     id: 4,
     //     teacher: "Chris",
     //     period: "4",
     //     form: "4XX",
-    //     dateReq: "2019-03-07"
+    //     datereq: "2019-03-07"
     //   },
     //   {
     //     id: 5,
     //     teacher: "Megan",
     //     period: "5",
     //     form: "2XX",
-    //     dateReq: "2019-03-08"
+    //     datereq: "2019-03-08"
     //   },
     //   {
     //     id: 6,
     //     teacher: "Andy",
     //     period: "6",
     //     form: "3XX",
-    //     dateReq: "2019-03-09"
+    //     datereq: "2019-03-09"
     //   },
     //   {
     //     id: 7,
     //     teacher: "Robin",
     //     period: "7",
     //     form: "U6XX",
-    //     dateReq: "2019-03-11"
+    //     datereq: "2019-03-11"
     //   },
     //   {
     //     id: 8,
     //     teacher: "Jonathan",
     //     period: "8",
     //     form: "L6XX",
-    //     dateReq: "2019-03-12"
+    //     datereq: "2019-03-12"
     //   },
     //   {
     //     id: 9,
     //     teacher: "Paul",
     //     period: "8",
     //     form: "2XX",
-    //     dateReq: "2019-03-12"
+    //     datereq: "2019-03-12"
     //   },
     //   {
     //     id: 10,
     //     teacher: "James",
     //     period: "7",
     //     form: "1XX",
-    //     dateReq: "2019-03-11"
+    //     datereq: "2019-03-11"
     //   },
     //   {
     //     id: 11,
     //     teacher: "Tabitha",
     //     period: "6",
     //     form: "1XX",
-    //     dateReq: "2019-03-09"
+    //     datereq: "2019-03-09"
     //   },
     //   {
     //     id: 12,
     //     teacher: "Chris",
     //     period: "5",
     //     form: "3XX",
-    //     dateReq: "2019-03-08"
+    //     datereq: "2019-03-08"
     //   },
     //   {
     //     id: 13,
     //     teacher: "Megan",
     //     period: "4",
     //     form: "L6XX",
-    //     dateReq: "2019-03-07"
+    //     datereq: "2019-03-07"
     //   },
     //   {
     //     id: 14,
     //     teacher: "Andy",
     //     period: "3",
     //     form: "L6XX",
-    //     dateReq: "2019-03-06"
+    //     datereq: "2019-03-06"
     //   },
     //   {
     //     id: 15,
     //     teacher: "Robin",
     //     period: "2",
     //     form: "2XX",
-    //     dateReq: "2019-03-05"
+    //     datereq: "2019-03-05"
     //   },
     //   {
     //     id: 16,
     //     teacher: "Jonathan",
     //     period: "1",
     //     form: "2XX",
-    //     dateReq: "2019-03-04"
+    //     datereq: "2019-03-04"
     //   },
     //   {
     //     id: 17,
     //     teacher: "Paul",
     //     period: "1",
     //     form: "5XX",
-    //     dateReq: "2019-03-04"
+    //     datereq: "2019-03-04"
     //   },
     //   {
     //     id: 18,
@@ -149,105 +153,105 @@ class UpcomingWeek extends Component {
     //     period: "2",
     //     form: "5XX",
     //
-    //     dateReq: "2019-03-05"
+    //     datereq: "2019-03-05"
     //   },
     //   {
     //     id: 19,
     //     teacher: "Tabitha",
     //     period: "3",
     //     form: "5XX",
-    //     dateReq: "2019-03-06"
+    //     datereq: "2019-03-06"
     //   },
     //   {
     //     id: 20,
     //     teacher: "Chris",
     //     period: "4",
     //     form: "2XX",
-    //     dateReq: "2019-03-07"
+    //     datereq: "2019-03-07"
     //   },
     //   {
     //     id: 21,
     //     teacher: "Megan",
     //     period: "5",
     //     form: "L6XX",
-    //     dateReq: "2019-03-08"
+    //     datereq: "2019-03-08"
     //   },
     //   {
     //     id: 22,
     //     teacher: "Andy",
     //     period: "6",
     //     form: "U6XX",
-    //     dateReq: "2019-03-09"
+    //     datereq: "2019-03-09"
     //   },
     //   {
     //     id: 23,
     //     teacher: "Robin",
     //     period: "7",
     //     form: "3XX",
-    //     dateReq: "2019-03-11"
+    //     datereq: "2019-03-11"
     //   },
     //   {
     //     id: 24,
     //     teacher: "Jonathan",
     //     period: "8",
     //     form: "PROJECT",
-    //     dateReq: "2019-03-12"
+    //     datereq: "2019-03-12"
     //   },
     //   {
     //     id: 25,
     //     teacher: "Paul",
     //     period: "8",
     //     form: "3XX",
-    //     dateReq: "2019-03-12"
+    //     datereq: "2019-03-12"
     //   },
     //   {
     //     id: 26,
     //     teacher: "James",
     //     period: "7",
     //     form: "2XX",
-    //     dateReq: "2019-03-11"
+    //     datereq: "2019-03-11"
     //   },
     //   {
     //     id: 27,
     //     teacher: "Tabitha",
     //     period: "6",
     //     form: "2XX",
-    //     dateReq: "2019-03-09"
+    //     datereq: "2019-03-09"
     //   },
     //   {
     //     id: 28,
     //     teacher: "Chris",
     //     period: "5",
     //     form: "1XX",
-    //     dateReq: "2019-03-08"
+    //     datereq: "2019-03-08"
     //   },
     //   {
     //     id: 29,
     //     teacher: "Megan",
     //     period: "4",
     //     form: "1XX",
-    //     dateReq: "2019-03-07"
+    //     datereq: "2019-03-07"
     //   },
     //   {
     //     id: 30,
     //     teacher: "Andy",
     //     period: "3",
     //     form: "4XX",
-    //     dateReq: "2019-03-06"
+    //     datereq: "2019-03-06"
     //   },
     //   {
     //     id: 31,
     //     teacher: "Robin",
     //     period: "2",
     //     form: "4XX",
-    //     dateReq: "2019-03-05"
+    //     datereq: "2019-03-05"
     //   },
     //   {
     //     id: 32,
     //     teacher: "Jonathan",
     //     period: "1",
     //     form: "3XX",
-    //     dateReq: "2019-03-04"
+    //     datereq: "2019-03-04"
     //   }
     // ];
     const p1m = [];
@@ -303,155 +307,158 @@ class UpcomingWeek extends Component {
     practicals.map(eachPractical => {
       var period = eachPractical.period;
       var day = new Date(eachPractical.datereq).getDay();
+      console.log(day)
+
 
       // Monday
-      if (period == 1 && day == 1) {
+      if (period === "1" && day === 1) {
         p1m.push(eachPractical);
+        console.log(p1m)
       }
-      if (period == 2 && day == 1) {
+      if (period === "2" && day === 1) {
         p2m.push(eachPractical);
       }
-      if (period == 3 && day == 1) {
+      if (period === "3" && day === 1) {
         p3m.push(eachPractical);
       }
-      if (period == 4 && day == 1) {
+      if (period === "4" && day === 1) {
         p4m.push(eachPractical);
       }
-      if (period == 5 && day == 1) {
+      if (period === "5" && day === 1) {
         p5m.push(eachPractical);
       }
-      if (period == 6 && day == 1) {
+      if (period === "6" && day === 1) {
         p6m.push(eachPractical);
       }
-      if (period == 7 && day == 1) {
+      if (period === "7" && day === 1) {
         p7m.push(eachPractical);
       }
-      if (period == 8 && day == 1) {
+      if (period === "8" && day === 1) {
         p8m.push(eachPractical);
       }
       // Tuesday
-      if (period == 1 && day == 2) {
+      if (period === "1" && day === 2) {
         p1tu.push(eachPractical);
       }
-      if (period == 2 && day == 2) {
+      if (period === "2" && day === 2) {
         p2tu.push(eachPractical);
       }
-      if (period == 3 && day == 2) {
+      if (period === "3" && day === 2) {
         p3tu.push(eachPractical);
       }
-      if (period == 4 && day == 2) {
+      if (period === "4" && day === 2) {
         p4tu.push(eachPractical);
       }
-      if (period == 5 && day == 2) {
+      if (period === "5" && day === 2) {
         p5tu.push(eachPractical);
       }
-      if (period == 6 && day == 2) {
+      if (period === "6" && day === 2) {
         p6tu.push(eachPractical);
       }
-      if (period == 7 && day == 2) {
+      if (period === "7" && day === 2) {
         p7tu.push(eachPractical);
       }
-      if (period == 8 && day == 2) {
+      if (period === "8" && day === 2) {
         p8tu.push(eachPractical);
       }
       // Wednesday
-      if (period == 1 && day == 3) {
+      if (period === "1" && day === 3) {
         p1w.push(eachPractical);
       }
-      if (period == 2 && day == 3) {
+      if (period === "2" && day === 3) {
         p2w.push(eachPractical);
       }
-      if (period == 3 && day == 3) {
+      if (period === "3" && day === 3) {
         p3w.push(eachPractical);
       }
-      if (period == 4 && day == 3) {
+      if (period === "4" && day === 3) {
         p4w.push(eachPractical);
       }
-      if (period == 5 && day == 3) {
+      if (period === "5" && day === 3) {
         p5w.push(eachPractical);
       }
-      if (period == 6 && day == 3) {
+      if (period === "6" && day === 3) {
         p6w.push(eachPractical);
       }
-      if (period == 7 && day == 3) {
+      if (period === "7" && day === 3) {
         p7w.push(eachPractical);
       }
-      if (period == 8 && day == 3) {
+      if (period === "8" && day === 3) {
         p8w.push(eachPractical);
       }
       // Thursday
-      if (period == 1 && day == 4) {
+      if (period === "1" && day === 4) {
         p1th.push(eachPractical);
       }
-      if (period == 2 && day == 4) {
+      if (period === "2" && day === 4) {
         p2th.push(eachPractical);
       }
-      if (period == 3 && day == 4) {
+      if (period === "3" && day === 4) {
         p3th.push(eachPractical);
       }
-      if (period == 4 && day == 4) {
+      if (period === "4" && day === 4) {
         p4th.push(eachPractical);
       }
-      if (period == 5 && day == 4) {
+      if (period === "5" && day === 4) {
         p5th.push(eachPractical);
       }
-      if (period == 6 && day == 4) {
+      if (period === "6" && day === 4) {
         p6th.push(eachPractical);
       }
-      if (period == 7 && day == 4) {
+      if (period === "7" && day === 4) {
         p7th.push(eachPractical);
       }
-      if (period == 8 && day == 4) {
+      if (period === "8" && day === 4) {
         p8th.push(eachPractical);
       }
       // Friday
-      if (period == 1 && day == 5) {
+      if (period === "1" && day === 5) {
         p1f.push(eachPractical);
       }
-      if (period == 2 && day == 5) {
+      if (period === "2" && day === 5) {
         p2f.push(eachPractical);
       }
-      if (period == 3 && day == 5) {
+      if (period === "3" && day === 5) {
         p3f.push(eachPractical);
       }
-      if (period == 4 && day == 5) {
+      if (period === "4" && day === 5) {
         p4f.push(eachPractical);
       }
-      if (period == 5 && day == 5) {
+      if (period === "5" && day === 5) {
         p5f.push(eachPractical);
       }
-      if (period == 6 && day == 5) {
+      if (period === "6" && day === 5) {
         p6f.push(eachPractical);
       }
-      if (period == 7 && day == 5) {
+      if (period === "7" && day === 5) {
         p7f.push(eachPractical);
       }
-      if (period == 8 && day == 5) {
+      if (period === "8" && day === 5) {
         p8f.push(eachPractical);
       }
       // Saturday
-      if (period == 1 && day == 6) {
+      if (period === "1" && day === 6) {
         p1s.push(eachPractical);
       }
-      if (period == 2 && day == 6) {
+      if (period === "2" && day === 6) {
         p2s.push(eachPractical);
       }
-      if (period == 3 && day == 6) {
+      if (period === "3" && day === 6) {
         p3s.push(eachPractical);
       }
-      if (period == 4 && day == 6) {
+      if (period === "4" && day === 6) {
         p4s.push(eachPractical);
       }
-      if (period == 5 && day == 6) {
+      if (period === "5" && day === 6) {
         p5s.push(eachPractical);
       }
-      if (period == 6 && day == 6) {
+      if (period === "6" && day === 6) {
         p6s.push(eachPractical);
       }
-      if (period == 7 && day == 6) {
+      if (period === "7" && day === 6) {
         p7s.push(eachPractical);
       }
-      if (period == 8 && day == 6) {
+      if (period === "8" && day === 6) {
         p8s.push(eachPractical);
       }
     });
@@ -461,30 +468,17 @@ class UpcomingWeek extends Component {
         <h2> Upcoming Orders! </h2>
         <div class="row form">
           <div class="col-md-4">
-            <h3>This Week's Date</h3>
-            <p id="thisWeek">DATE</p>
+            <h3>Currently Displaying Week:</h3>
+            <p id="thisWeek">{this.state.weekDisplaying}</p>
           </div>
           <div id="selectionContainer" class="col-md-4">
-            <p>Select a week:</p>
-            <select class="form-control" id="weekSelection">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
-              <option>9</option>
-              <option>10</option>
-            </select>
+            <TwelveWeeks />
           </div>
           <div class="col-md-4">
             <h3>Week A or B?</h3>
             <p id="aOrB">It's WEEK A</p>
           </div>
         </div>
-        <p>Then click on individual days for more details:</p>
         <div id="tableContainer">
           <table class="table table-hover">
             <thead>

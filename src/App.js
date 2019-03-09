@@ -7,7 +7,7 @@ import Requisition from "./components/Form/requisition";
 import UpcomingWeek from "./components/Upcoming/upcomingWeek";
 import UpcomingDay from "./components/Upcoming/upcomingDay";
 import Feedback from "./components/Feedback/feedback";
-
+import TwelveWeeks from "./components/TableData/twelveWeeks";
 
 class App extends Component {
   render() {
@@ -21,7 +21,7 @@ class App extends Component {
             <Route exact path="/upcoming" component={UpcomingWeek} />
             <Route path="/upcoming/:id" component={UpcomingDay} />
             <Route path="/feedback" component={Feedback} />
-            <Route path="/day" component={UpcomingDay} />
+            <Route path="/day" component={TwelveWeeks} />
           </div>
         </Switch>
       </div>

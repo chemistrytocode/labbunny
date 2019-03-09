@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Practical from "./practical";
 import "./upcomingStyling.css";
 
 class UpcomingDay extends Component {
@@ -12,7 +11,6 @@ class UpcomingDay extends Component {
   }
 
   componentDidMount() {
-
     const { id } = this.props.match.params;
 
     fetch(`http://localhost:5000/reqs/${id}`)
@@ -25,71 +23,101 @@ class UpcomingDay extends Component {
     const { practical } = this.state;
 
     return (
-      <div id="upcomingContainer" class="col-sm-12">
-        <h2> PopulateDate </h2>
-        <div class="row form">
-          <div class="col-sm-4">
-            <h3>This Day's Practicals</h3>
-            <p>Click on a practical to see details:</p>
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <td id="fullBorder">Period</td>
-                  <td id="fullBorder">Orders</td>
-                </tr>
-                <tr class="table-light">
-                  <td id="LRborder">1</td>
-                  <td id="p1" />
-                </tr>
-                <tr class="table-light">
-                  <td id="LRborder">2</td>
-                  <td id="p2" />
-                </tr>
-                <tr class="table-light">
-                  <td id="LRborder">3</td>
-                  <td id="p3" />
-                </tr>
-                <tr class="table-success" id="fullBorder">
-                  <td colspan="7" align="center">
-                    Break
-                  </td>
-                </tr>
-                <tr class="table-light">
-                  <td id="LRborder">4</td>
-                  <td id="p4" />
-                </tr>
-                <tr class="table-light">
-                  <td id="LRborder">5</td>
-                  <td id="p5" />
-                </tr>
-                <tr class="table-success" id="fullBorder">
-                  <td colspan="2" align="center">
-                    Lunch
-                  </td>
-                </tr>
-                <tr class="table-light">
-                  <td id="LRborder">6</td>
-                  <td id="p6" />
-                </tr>
-                <tr class="table-light">
-                  <td id="LRborder">7</td>
-                  <td id="p7" />
-                </tr>
-                <tr class="table-light">
-                  <td id="LRborder">8</td>
-                  <td id="p8" />
-                </tr>
-              </thead>
-            </table>
-          </div>
-          <div id="selectionContainer" class="col-sm-6">
-            <div class="col-md-4">
-              <h3>Details</h3>
-              <Practical practical={practical} />
-            </div>
-          </div>
+      <div id="upcomingContainer">
+        <h2>Ordered By: {practical.teacher}</h2>
+        <h3>For: {new Date(practical.datereq).toDateString()}</h3>
+        <h3>Period: {practical.period}</h3>
+        <div id="upcomingContainer" class="col-sm-4">
+          <table class="table table-hover" id="fullBorder">
+            <thead>
+              <tr>
+                <td id="fullBorder" colspan="3">
+                  <h3>{practical.teacher}</h3>
+                </td>
+              </tr>
+              <tr class="table-light">
+                <td id="LRborder">
+                  <h4>Form</h4>
+                </td>
+                <td id="matchForm" colspan="2">
+                  {practical.form}
+                </td>
+              </tr>
+              <tr class="table-light">
+                <td id="LRborder">
+                  <h4>Period</h4>
+                </td>
+                <td id="matchPeriod" colspan="2">
+                  {practical.period}
+                </td>
+              </tr>
+              <tr class="table-light">
+                <td id="LRborder">
+                  <h4>Sets</h4>
+                </td>
+                <td id="matchSets" colspan="2">
+                  {practical.sets}
+                </td>
+              </tr>
+              <tr class="table-light">
+                <td id="fullBorder" colspan="3">
+                  <h4>Description</h4>
+                </td>
+              </tr>
+              <tr class="table-light">
+                <td id="matchDescription" colspan="3">
+                  {practical.description}
+                </td>
+              </tr>
+              <tr class="table-light">
+                <td id="fullBorder">
+                  <h4>Chemicals</h4>
+                </td>
+                <td id="fullBorder">
+                  <h4>Quantity</h4>
+                </td>
+                <td id="fullBorder">
+                  <h4>Hazards</h4>
+                </td>
+              </tr>
+              <tr class="table-light">
+                <td id="matchChemicals fullBorder">{practical.chemical}</td>
+                <td id="matchQuantity fullBorder">{practical.quantity}</td>
+                <td id="matchHazards fullBorder">{practical.hazards}</td>
+              </tr>
+              <tr class="table-light">
+                <td id="fullBorder" colspan="3">
+                  <h4>Apparatus</h4>
+                </td>
+              </tr>
+              <tr class="table-light" id="fullBorder">
+                <td id="matchApparatus fullBorder" colspan="3">
+                  {practical.apparatus}
+                </td>
+              </tr>
+              <tr class="table-light fullBorder">
+                <td id="editButton" colspan="3">
+                  <input
+                    type="submit"
+                    value="Print Practical"
+                    class="btn btn-info"
+                  />
+                  <input
+                    type="submit"
+                    value="Edit Practical"
+                    class="btn btn-warning"
+                  />
+
+                  <input
+                    type="submit"
+                    value="ReOrder Practical"
+                    class="btn btn-danger"
+                  />
+                </td>
+              </tr>
+            </thead>
+          </table>
         </div>
-        <p id="trademark">Created by Paul Ayling @chemistrytocode</p>
       </div>
     );
   }
