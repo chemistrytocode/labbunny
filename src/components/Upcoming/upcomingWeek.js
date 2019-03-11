@@ -3,7 +3,6 @@ import TableSorter from "../TableData/TableSorter";
 import NavBar from "../NavBar/navbar";
 import TwelveWeeks from "../TableData/twelveWeeks";
 
-
 // import upcomingWeekInterface from '../../interface/upcomingWeekInterface'
 
 import "./upcomingStyling.css";
@@ -13,7 +12,13 @@ class UpcomingWeek extends Component {
     super(props);
 
     this.state = {
-      weekDisplaying: new Date().toLocaleDateString(),
+      week: "",
+      monday: "",
+      tuesday: "",
+      wednesday: "",
+      thursday: "",
+      friday: "",
+      saturday: "",
       practicals: []
     };
   }
@@ -25,6 +30,12 @@ class UpcomingWeek extends Component {
         this.setState({ practicals: practicals });
       });
   }
+
+  logChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
+    console.log({ [e.target.name]: e.target.value });
+  }
+
   render() {
     const { practicals } = this.state;
     // const practicals = [
@@ -304,175 +315,204 @@ class UpcomingWeek extends Component {
     const p8f = [];
     const p8s = [];
 
-    practicals.map(eachPractical => {
-      var period = eachPractical.period;
-      var day = new Date(eachPractical.datereq).getDay();
-      console.log(day)
+    // function setDayDate(day) {
+    //   var dayDate = new Date(this.state.week);
+    //   var monday = new Date();
+    //   var tuesday = new Date();
+    //   var wednesday = new Date();
+    //   var thursday = new Date();
+    //   var friday = new Date();
+    //   var saturday = new Date();
+    //   this.setState({
+    //     monday: monday.setDate(dayDate.getDay()).toLocaleDateString(),
+    //     tuesday: tuesday.setDate(dayDate.getDay() + 1).toLocaleDateString(),
+    //     wednesday: wednesday.setDate(dayDate.getDay() + 2).toLocaleDateString(),
+    //     thursday: thursday.setDate(dayDate.getDay() + 3).toLocaleDateString(),
+    //     friday: friday.setDate(dayDate.getDay() + 4).toLocaleDateString(),
+    //     saturday: saturday.setDate(dayDate.getDay() + 5).toLocaleDateString(),
+    //   })
+    // }
+    // function setWeek(weekNumber) {
+    //   if (today.getDay() != 1) {
+    //     weekStart.setDate(
+    //       today.getDate() + (weekNumber - 1) * 7 - (today.getDay() - 1)
+    //     );
+    //   } else {
+    //     weekStart.setDate(today.getDate());
+    //   }
+    //   return weekStart.toLocaleDateString();
+    // }
 
+    function populateTable() {
+      practicals.map(eachPractical => {
+        var period = eachPractical.period;
+        var day = new Date(eachPractical.datereq).getDay();
 
-      // Monday
-      if (period === "1" && day === 1) {
-        p1m.push(eachPractical);
-        console.log(p1m)
-      }
-      if (period === "2" && day === 1) {
-        p2m.push(eachPractical);
-      }
-      if (period === "3" && day === 1) {
-        p3m.push(eachPractical);
-      }
-      if (period === "4" && day === 1) {
-        p4m.push(eachPractical);
-      }
-      if (period === "5" && day === 1) {
-        p5m.push(eachPractical);
-      }
-      if (period === "6" && day === 1) {
-        p6m.push(eachPractical);
-      }
-      if (period === "7" && day === 1) {
-        p7m.push(eachPractical);
-      }
-      if (period === "8" && day === 1) {
-        p8m.push(eachPractical);
-      }
-      // Tuesday
-      if (period === "1" && day === 2) {
-        p1tu.push(eachPractical);
-      }
-      if (period === "2" && day === 2) {
-        p2tu.push(eachPractical);
-      }
-      if (period === "3" && day === 2) {
-        p3tu.push(eachPractical);
-      }
-      if (period === "4" && day === 2) {
-        p4tu.push(eachPractical);
-      }
-      if (period === "5" && day === 2) {
-        p5tu.push(eachPractical);
-      }
-      if (period === "6" && day === 2) {
-        p6tu.push(eachPractical);
-      }
-      if (period === "7" && day === 2) {
-        p7tu.push(eachPractical);
-      }
-      if (period === "8" && day === 2) {
-        p8tu.push(eachPractical);
-      }
-      // Wednesday
-      if (period === "1" && day === 3) {
-        p1w.push(eachPractical);
-      }
-      if (period === "2" && day === 3) {
-        p2w.push(eachPractical);
-      }
-      if (period === "3" && day === 3) {
-        p3w.push(eachPractical);
-      }
-      if (period === "4" && day === 3) {
-        p4w.push(eachPractical);
-      }
-      if (period === "5" && day === 3) {
-        p5w.push(eachPractical);
-      }
-      if (period === "6" && day === 3) {
-        p6w.push(eachPractical);
-      }
-      if (period === "7" && day === 3) {
-        p7w.push(eachPractical);
-      }
-      if (period === "8" && day === 3) {
-        p8w.push(eachPractical);
-      }
-      // Thursday
-      if (period === "1" && day === 4) {
-        p1th.push(eachPractical);
-      }
-      if (period === "2" && day === 4) {
-        p2th.push(eachPractical);
-      }
-      if (period === "3" && day === 4) {
-        p3th.push(eachPractical);
-      }
-      if (period === "4" && day === 4) {
-        p4th.push(eachPractical);
-      }
-      if (period === "5" && day === 4) {
-        p5th.push(eachPractical);
-      }
-      if (period === "6" && day === 4) {
-        p6th.push(eachPractical);
-      }
-      if (period === "7" && day === 4) {
-        p7th.push(eachPractical);
-      }
-      if (period === "8" && day === 4) {
-        p8th.push(eachPractical);
-      }
-      // Friday
-      if (period === "1" && day === 5) {
-        p1f.push(eachPractical);
-      }
-      if (period === "2" && day === 5) {
-        p2f.push(eachPractical);
-      }
-      if (period === "3" && day === 5) {
-        p3f.push(eachPractical);
-      }
-      if (period === "4" && day === 5) {
-        p4f.push(eachPractical);
-      }
-      if (period === "5" && day === 5) {
-        p5f.push(eachPractical);
-      }
-      if (period === "6" && day === 5) {
-        p6f.push(eachPractical);
-      }
-      if (period === "7" && day === 5) {
-        p7f.push(eachPractical);
-      }
-      if (period === "8" && day === 5) {
-        p8f.push(eachPractical);
-      }
-      // Saturday
-      if (period === "1" && day === 6) {
-        p1s.push(eachPractical);
-      }
-      if (period === "2" && day === 6) {
-        p2s.push(eachPractical);
-      }
-      if (period === "3" && day === 6) {
-        p3s.push(eachPractical);
-      }
-      if (period === "4" && day === 6) {
-        p4s.push(eachPractical);
-      }
-      if (period === "5" && day === 6) {
-        p5s.push(eachPractical);
-      }
-      if (period === "6" && day === 6) {
-        p6s.push(eachPractical);
-      }
-      if (period === "7" && day === 6) {
-        p7s.push(eachPractical);
-      }
-      if (period === "8" && day === 6) {
-        p8s.push(eachPractical);
-      }
-    });
+        // Monday
+        if (period === "1" && day === 1) {
+          p1m.push(eachPractical);
+          console.log(p1m);
+        }
+        if (period === "2" && day === 1) {
+          p2m.push(eachPractical);
+        }
+        if (period === "3" && day === 1) {
+          p3m.push(eachPractical);
+        }
+        if (period === "4" && day === 1) {
+          p4m.push(eachPractical);
+        }
+        if (period === "5" && day === 1) {
+          p5m.push(eachPractical);
+        }
+        if (period === "6" && day === 1) {
+          p6m.push(eachPractical);
+        }
+        if (period === "7" && day === 1) {
+          p7m.push(eachPractical);
+        }
+        if (period === "8" && day === 1) {
+          p8m.push(eachPractical);
+        }
+        // Tuesday
+        if (period === "1" && day === 2) {
+          p1tu.push(eachPractical);
+        }
+        if (period === "2" && day === 2) {
+          p2tu.push(eachPractical);
+        }
+        if (period === "3" && day === 2) {
+          p3tu.push(eachPractical);
+        }
+        if (period === "4" && day === 2) {
+          p4tu.push(eachPractical);
+        }
+        if (period === "5" && day === 2) {
+          p5tu.push(eachPractical);
+        }
+        if (period === "6" && day === 2) {
+          p6tu.push(eachPractical);
+        }
+        if (period === "7" && day === 2) {
+          p7tu.push(eachPractical);
+        }
+        if (period === "8" && day === 2) {
+          p8tu.push(eachPractical);
+        }
+        // Wednesday
+        if (period === "1" && day === 3) {
+          p1w.push(eachPractical);
+        }
+        if (period === "2" && day === 3) {
+          p2w.push(eachPractical);
+        }
+        if (period === "3" && day === 3) {
+          p3w.push(eachPractical);
+        }
+        if (period === "4" && day === 3) {
+          p4w.push(eachPractical);
+        }
+        if (period === "5" && day === 3) {
+          p5w.push(eachPractical);
+        }
+        if (period === "6" && day === 3) {
+          p6w.push(eachPractical);
+        }
+        if (period === "7" && day === 3) {
+          p7w.push(eachPractical);
+        }
+        if (period === "8" && day === 3) {
+          p8w.push(eachPractical);
+        }
+        // Thursday
+        if (period === "1" && day === 4) {
+          p1th.push(eachPractical);
+        }
+        if (period === "2" && day === 4) {
+          p2th.push(eachPractical);
+        }
+        if (period === "3" && day === 4) {
+          p3th.push(eachPractical);
+        }
+        if (period === "4" && day === 4) {
+          p4th.push(eachPractical);
+        }
+        if (period === "5" && day === 4) {
+          p5th.push(eachPractical);
+        }
+        if (period === "6" && day === 4) {
+          p6th.push(eachPractical);
+        }
+        if (period === "7" && day === 4) {
+          p7th.push(eachPractical);
+        }
+        if (period === "8" && day === 4) {
+          p8th.push(eachPractical);
+        }
+        // Friday
+        if (period === "1" && day === 5) {
+          p1f.push(eachPractical);
+        }
+        if (period === "2" && day === 5) {
+          p2f.push(eachPractical);
+        }
+        if (period === "3" && day === 5) {
+          p3f.push(eachPractical);
+        }
+        if (period === "4" && day === 5) {
+          p4f.push(eachPractical);
+        }
+        if (period === "5" && day === 5) {
+          p5f.push(eachPractical);
+        }
+        if (period === "6" && day === 5) {
+          p6f.push(eachPractical);
+        }
+        if (period === "7" && day === 5) {
+          p7f.push(eachPractical);
+        }
+        if (period === "8" && day === 5) {
+          p8f.push(eachPractical);
+        }
+        // Saturday
+        if (period === "1" && day === 6) {
+          p1s.push(eachPractical);
+        }
+        if (period === "2" && day === 6) {
+          p2s.push(eachPractical);
+        }
+        if (period === "3" && day === 6) {
+          p3s.push(eachPractical);
+        }
+        if (period === "4" && day === 6) {
+          p4s.push(eachPractical);
+        }
+        if (period === "5" && day === 6) {
+          p5s.push(eachPractical);
+        }
+        if (period === "6" && day === 6) {
+          p6s.push(eachPractical);
+        }
+        if (period === "7" && day === 6) {
+          p7s.push(eachPractical);
+        }
+        if (period === "8" && day === 6) {
+          p8s.push(eachPractical);
+        }
+      });
+    }
+    populateTable();
 
     return (
       <div id="upcomingContainer" class="col-sm-12">
         <h2> Upcoming Orders! </h2>
         <div class="row form">
           <div class="col-md-4">
-            <h3>Currently Displaying Week:</h3>
-            <p id="thisWeek">{this.state.weekDisplaying}</p>
+            <h3>Currently Displaying:</h3>
+            <p id="thisWeek">{this.state.week}</p>
           </div>
           <div id="selectionContainer" class="col-md-4">
-            <TwelveWeeks />
+            <TwelveWeeks logChange={this.logChange.bind(this)} />
           </div>
           <div class="col-md-4">
             <h3>Week A or B?</h3>
@@ -483,13 +523,39 @@ class UpcomingWeek extends Component {
           <table class="table table-hover">
             <thead>
               <tr>
-                <td id="fullBorder"><p id="period">Period</p></td>
-                <td id="fullBorder"><p id="monday">Monday</p><button class="btn btn-warning">Print All</button></td>
-                <td id="fullBorder"><p id="tuesday">Tuesday</p><button class="btn btn-warning">Print All</button></td>
-                <td id="fullBorder"><p id="wednesday">Wednesday</p><button class="btn btn-warning">Print All</button></td>
-                <td id="fullBorder"><p id="thursday">Thursday</p><button class="btn btn-warning">Print All</button></td>
-                <td id="fullBorder"><p id="friday">Friday</p><button class="btn btn-warning">Print All</button></td>
-                <td id="fullBorder"><p id="saturday">Saturday</p><button class="btn btn-warning">Print All</button></td>
+                <td id="fullBorder">
+                  <p id="period">Period</p>
+                </td>
+                <td id="fullBorder">
+                  <p id="monday">Monday</p>
+                  <p id="dateOfDay">{this.state.monday}</p>
+                  <button class="btn btn-warning">Print All</button>
+                </td>
+                <td id="fullBorder">
+                  <p id="tuesday">Tuesday</p>
+                  <p id="dateOfDay">{this.state.tuesday}</p>
+                  <button class="btn btn-warning">Print All</button>
+                </td>
+                <td id="fullBorder">
+                  <p id="wednesday">Wednesday</p>
+                  <p id="dateOfDay">{this.state.wednesday}</p>
+                  <button class="btn btn-warning">Print All</button>
+                </td>
+                <td id="fullBorder">
+                  <p id="thursday">Thursday</p>
+                  <p id="dateOfDay">{this.state.thursday}</p>
+                  <button class="btn btn-warning">Print All</button>
+                </td>
+                <td id="fullBorder">
+                  <p id="friday">Friday</p>
+                  <p id="dateOfDay">{this.state.friday}</p>
+                  <button class="btn btn-warning">Print All</button>
+                </td>
+                <td id="fullBorder">
+                  <p id="saturday">Saturday</p>
+                  <p id="dateOfDay">{this.state.saturday}</p>
+                  <button class="btn btn-warning">Print All</button>
+                </td>
               </tr>
               <tr class="table-light">
                 <td id="LRborder">1</td>

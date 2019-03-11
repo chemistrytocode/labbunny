@@ -39,9 +39,13 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 
 app.get('/reqs', db.getReqs)
+app.post('/reqs', db.addReq)
+
 app.get('/reqs/:id', db.getReqsById)
 app.get('/reqs/:date', db.getReqsByDate)
-app.post('/reqs', db.addReq)
+
+// app.get('/user', db.getUser)
+app.post('/user', db.addUser)
 
 // app.get('/users/:id', db.getUserById)
 // app.get('/spaces', db.getSpaces)

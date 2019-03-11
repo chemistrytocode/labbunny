@@ -80,6 +80,24 @@ const addReq = (request, response) => {
   );
 };
 
+const addUser = (request, response) => {
+  const {
+    name,
+    email
+  } = request.body;
+
+  pool.query(
+    `INSERT INTO users (name, email) VALUES ('${name}', '${email}')`,
+    (error, results) => {
+      if (error) {
+        throw error;
+      }
+      console.log(results.rows);
+      response.status(201).send(`Submission Successful`);
+    }
+  );
+};
+
 // const getUserById = (request, response) => {
 //   const id = parseInt(request.params.id)
 //   pool.query(`SELECT * FROM users WHERE id = ${id}`, (error, results) => {
@@ -140,5 +158,6 @@ module.exports = {
   getReqs,
   addReq,
   getReqsById,
-  getReqsByDate
+  getReqsByDate,
+  addUser
 };

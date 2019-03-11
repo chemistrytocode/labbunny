@@ -1,110 +1,90 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
-import {
-  BrowserRouter as Switch,
-  Router,
-  Route,
-  Link,
-  Redirect
-} from "react-router-dom";
 import GoogleLogin from "react-google-login";
+import { Redirect } from "react-router-dom";
 import "./login.css";
-import "../NavBar/bootstrap.css";
-import config from "../../config.json";
-
-const responseGoogle = response => {
-  console.log(response);
-  this.signup(response, "google");
-};
 
 class Login extends Component {
-  constructor() {
-    super();
-    this.state = { isAuthenticated: false, user: null, token: "" };
+  constructor(props) {
+    super(props);
+    this.state = {
+      loginError: false,
+      redirect: false
+    };
+    this.signup = this.signup.bind(this);
   }
 
-  logout = () => {
-    this.setState({ isAuthenticated: false, token: "", user: null });
-  };
+  // Receive Google response and "Google" type.
+  signup(res, type) {
+    let data;
+    // Set Data
+    if (type === "facebook" && res.email) {
+      data = {
+        name: res.name,
+        provider: type,
+        email: res.email,
+        provider_id: res.id,
+        token: res.accessToken,
+        provider_pic: res.picture.data.url
+      };
+    }
+    if (type === "google" && res.w3.U3) {
+      // From response set JSON for Database Query
+      data = {
+        name: res.w3.ig,
+        provider: type,
+        email: res.w3.U3,
+        provider_id: res.El,
+        token: res.Zi.access_token,
+        provider_pic: res.w3.Paa
+      };
+    }
+    console.log(data);
 
-  onFailure = error => {
-    alert(error);
-  };
-
-  twitterResponse = response => {
-    const token = response.headers.get("x-auth-token");
-    response.json().then(user => {
-      if (token) {
-        this.setState({ isAuthenticated: true, user, token });
-      }
-    });
-  };
-
-  facebookResponse = response => {
-    const tokenBlob = new Blob(
-      [JSON.stringify({ access_token: response.accessToken }, null, 2)],
-      { type: "application/json" }
-    );
-    const options = {
-      method: "POST",
-      body: tokenBlob,
-      mode: "cors",
-      cache: "default"
-    };
-    fetch("http://localhost:4000/api/v1/auth/facebook", options).then(r => {
-      const token = r.headers.get("x-auth-token");
-      r.json().then(user => {
-        if (token) {
-          this.setState({ isAuthenticated: true, user, token });
-        }
+    if (data) {
+      // Post to Database
+      fetch("/user", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      }).then(response => {
+        // Set Redirect to True
+        this.setState({ redirect: true });
       });
-    });
-  };
-
-  googleResponse = response => {
-    const tokenBlob = new Blob(
-      [JSON.stringify({ access_token: response.accessToken }, null, 2)],
-      { type: "application/json" }
-    );
-    const options = {
-      method: "POST",
-      body: tokenBlob,
-      mode: "cors",
-      cache: "default"
-    };
-    fetch("http://localhost:4000/api/v1/auth/google", options).then(r => {
-      const token = r.headers.get("x-auth-token");
-      r.json().then(user => {
-        if (token) {
-          this.setState({ isAuthenticated: true, user, token });
-        }
-      });
-    });
-  };
+    } else {
+    }
+  }
 
   render() {
-    let content = !!this.state.isAuthenticated ? (
-      <div>
-        <p>Authenticated</p>
-        <div>{this.state.user.email}</div>
-        <div>
-          <button onClick={this.logout} className="button">
-            Log out
-          </button>
-        </div>
-      </div>
-    ) : (
-      <div>
+    if (this.state.redirect || sessionStorage.getItem("userData")) {
+      return <Redirect to={"/home"} />;
+    }
+
+    // Recieve response from Facebook
+    const responseFacebook = response => {
+      console.log("facebook console");
+      console.log(response);
+      // Forward information to Signup Method
+      this.signup(response, "facebook");
+    };
+
+    // Receive reponse from Google
+    const responseGoogle = response => {
+      console.log("google console");
+      console.log(response);
+      // Forward information to Signup Method
+      this.signup(response, "google");
+    };
+
+    return (
+      <div className="row body">
         <GoogleLogin
-          clientId={config.GOOGLE_CLIENT_ID}
-          buttonText="Login"
-          onSuccess={this.googleResponse}
-          onFailure={this.onFailure}
+          clientId="329929199455-fqofslrb94m67a3liamgoh9sck0j2j4e.apps.googleusercontent.com"
+          buttonText="Login with Google"
+          onSuccess={responseGoogle}
+          onFailure={responseGoogle}
         />
       </div>
     );
-
-    return <div className="App">{content}</div>;
   }
 }
 
