@@ -17,45 +17,46 @@ class Login extends Component {
   signup(res, type) {
     let data;
     // Set Data
-    if (type === "facebook" && res.email) {
-      data = {
-        name: res.name,
-        provider: type,
-        email: res.email,
-        provider_id: res.id,
-        token: res.accessToken,
-        provider_pic: res.picture.data.url
-      };
-    }
     if (type === "google" && res.w3.U3) {
       // From response set JSON for Database Query
       data = {
-        name: res.w3.ig,
+        username: res.w3.ig,
         provider: type,
-        email: res.w3.U3,
+        useremail: res.w3.U3,
         provider_id: res.El,
         token: res.Zi.access_token,
         provider_pic: res.w3.Paa
       };
-    }
-    console.log(data);
-
-    if (data) {
-      // Post to Database
-      fetch("/user", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-      }).then(response => {
-        // Set Redirect to True
-        this.setState({ redirect: true });
-      });
-    } else {
+      if (data) {
+        fetch(`/user/${data.useremail}`)
+          .then(response => response.json())
+          .then(users => {
+            if (users[0]) {
+              this.setState({ redirect: true });
+              console.log(`AFTER GET: ${this.state.redirect}`);
+            }
+          })
+          .then(users => {
+            if (data && this.state.redirect === false) {
+              fetch("/user", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+              }).then(response => {
+                // Set Redirect to True
+                this.setState({ redirect: true });
+                console.log(`AFTER POST: ${this.state.redirect}`);
+              });
+            } else {
+            }
+          });
+      }
     }
   }
 
   render() {
-    if (this.state.redirect || sessionStorage.getItem("userData")) {
+    if (this.state.redirect === true || sessionStorage.getItem("userData")) {
+      console.log(`IN RENDER: ${this.state.redirect}`);
       return <Redirect to={"/home"} />;
     }
 

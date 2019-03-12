@@ -80,14 +80,27 @@ const addReq = (request, response) => {
   );
 };
 
+//Users
+const getUserByEmail = (request, response) => {
+  const email = request.params.email;
+  console.log(`In getUserByEmail: ${email}`);
+  pool.query(
+    `SELECT * FROM users WHERE (useremail) = '${email}'`,
+    (error, results) => {
+      if (error) {
+        throw error;
+      }
+      response.status(200).json(results.rows);
+      // JSON.stringify(thing)
+    }
+  );
+}
+
 const addUser = (request, response) => {
-  const {
-    name,
-    email
-  } = request.body;
+  const { useremail, username } = request.body;
 
   pool.query(
-    `INSERT INTO users (name, email) VALUES ('${name}', '${email}')`,
+    `INSERT INTO users (useremail, username) VALUES ('${useremail}', '${username}')`,
     (error, results) => {
       if (error) {
         throw error;
@@ -159,5 +172,6 @@ module.exports = {
   addReq,
   getReqsById,
   getReqsByDate,
-  addUser
+  addUser,
+  getUserByEmail
 };

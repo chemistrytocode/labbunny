@@ -44,7 +44,7 @@ app.post('/reqs', db.addReq)
 app.get('/reqs/:id', db.getReqsById)
 app.get('/reqs/:date', db.getReqsByDate)
 
-// app.get('/user', db.getUser)
+app.get('/user/:email', db.getUserByEmail)
 app.post('/user', db.addUser)
 
 // app.get('/users/:id', db.getUserById)
