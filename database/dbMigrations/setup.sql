@@ -1,7 +1,7 @@
 CREATE TABLE users (
-    useremail VARCHAR(256),
-    username VARCHAR(256),
-    PRIMARY KEY (useremail));
+    email VARCHAR(256),
+    name VARCHAR(256),
+    PRIMARY KEY (email));
 
 CREATE TABLE orders (
     id SERIAL,
@@ -21,4 +21,4 @@ CREATE TABLE orders (
     addNotes VARCHAR(1024),
     userEmail VARCHAR(128),
     PRIMARY KEY (id),
-    FOREIGN KEY (useremail) REFERENCES users(useremail) ON UPDATE CASCADE ON DELETE CASCADE);
+    FOREIGN KEY (useremail) REFERENCES users(email) ON UPDATE CASCADE ON DELETE CASCADE);

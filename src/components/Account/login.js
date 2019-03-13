@@ -1,79 +1,72 @@
 import React, { Component } from "react";
 import GoogleLogin from "react-google-login";
 import { Redirect } from "react-router-dom";
-import "./login.css";
+import "./Login.css";
 
-class Login extends Component {
+export class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loginError: false,
       redirect: false
     };
-    this.signup = this.signup.bind(this);
+    this.sortData = this.sortData.bind(this);
+    this.getOrAddUser = this.getOrAddUser.bind(this);
   }
 
-  // Receive Google response and "Google" type.
-  signup(res, type) {
+  sortData(res, type) {
     let data;
-    // Set Data
     if (type === "google" && res.w3.U3) {
-      // From response set JSON for Database Query
       data = {
-        username: res.w3.ig,
+        name: res.w3.ig,
         provider: type,
-        useremail: res.w3.U3,
+        email: res.w3.U3,
         provider_id: res.El,
         token: res.Zi.access_token,
         provider_pic: res.w3.Paa
       };
-      if (data) {
-        fetch(`/user/${data.useremail}`)
-          .then(response => response.json())
-          .then(users => {
-            if (users[0]) {
+    }
+    return data;
+  }
+
+  getOrAddUser(data) {
+    if (data) {
+      fetch(`/user/${data.email}`)
+        .then(response => response.json())
+        .then(users => {
+          // If data exists, gets and stores data locally
+
+          if (users[0]) {
+            sessionStorage.setItem("userEmail", users.email);
+            sessionStorage.setItem("userName", users.name);
+            this.setState({ redirect: true });
+          }
+          // Else, posts to DB and stores data locally.
+          else {
+            fetch("/user", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(data)
+            }).then(response => {
+              sessionStorage.setItem("userEmail", data.email);
+              sessionStorage.setItem("userName", data.name);
               this.setState({ redirect: true });
-              console.log(`AFTER GET: ${this.state.redirect}`);
-            }
-          })
-          .then(users => {
-            if (data && this.state.redirect === false) {
-              fetch("/user", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data)
-              }).then(response => {
-                // Set Redirect to True
-                this.setState({ redirect: true });
-                console.log(`AFTER POST: ${this.state.redirect}`);
-              });
-            } else {
-            }
-          });
-      }
+            });
+          }
+        });
     }
   }
 
   render() {
-    if (this.state.redirect === true || sessionStorage.getItem("userData")) {
-      console.log(`IN RENDER: ${this.state.redirect}`);
-      return <Redirect to={"/home"} />;
+    if (this.state.redirect === true) {
+      return <Redirect to={"/upcoming"} />;
     }
-
-    // Recieve response from Facebook
-    const responseFacebook = response => {
-      console.log("facebook console");
-      console.log(response);
-      // Forward information to Signup Method
-      this.signup(response, "facebook");
-    };
 
     // Receive reponse from Google
     const responseGoogle = response => {
       console.log("google console");
       console.log(response);
-      // Forward information to Signup Method
-      this.signup(response, "google");
+      let sortedData = this.sortData(response, "google");
+      this.getOrAddUser(sortedData);
     };
 
     return (
