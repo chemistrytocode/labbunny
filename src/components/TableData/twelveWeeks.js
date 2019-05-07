@@ -55,9 +55,9 @@ class TwelveWeeks extends Component {
           class="form-control"
           id="weekSelection"
           name="week"
-          onChange={this.props.logChange}
+          onChange={(this.props.logChange, this.props.updateTable)}
         >
-          <option></option>
+          <option />
           <option>{this.state.week1}</option>
           <option>{this.state.week2}</option>
           <option>{this.state.week3}</option>

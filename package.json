@@ -16,6 +16,7 @@
     "react-google-login-component": "^0.9.3",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.5",
+    "sequelize": "^5.2.8",
     "typescript": "^3.3.3333"
   },
   "scripts": {

@@ -65,5 +65,5 @@ app.post('/user', db.addUser)
 const server = createServer(app);
 server.listen(PORT, err => {
   if (err) throw err;
-  console.log("Server Started!");
+  console.log(`Server Started on Port ${PORT}`);
 });

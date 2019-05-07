@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+
 import "./upcomingStyling.css";
 
 class UpcomingDay extends Component {
@@ -102,17 +104,19 @@ class UpcomingDay extends Component {
                     value="Print Practical"
                     class="btn btn-info"
                   />
-                  <input
-                    type="submit"
-                    value="Edit Practical"
-                    class="btn btn-warning"
-                  />
-
+                    <input
+                      type="submit"
+                      value="Edit Practical"
+                      class="btn btn-warning"
+                    />
+                  <Link to={{ pathname: '/reorder', state: { practical: practical} }}>
                   <input
                     type="submit"
                     value="ReOrder Practical"
                     class="btn btn-danger"
                   />
+                  </Link>
+
                 </td>
               </tr>
             </thead>

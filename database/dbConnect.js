@@ -1,15 +1,15 @@
 const Pool = require("pg").Pool;
 const pool = new Pool({
-  user: "oyznzsbotwwyai",
-  host: "ec2-54-228-224-37.eu-west-1.compute.amazonaws.com",
-  database: "d81q34vh3prve",
-  password: "bdfda2a5290dd59d7b7d239493f22d63c856cea37300bcda0326894f87b1780c",
+  user: "ggnbwvhozyjioi",
+  host: "ec2-54-75-230-253.eu-west-1.compute.amazonaws.com",
+  database: "d7v0hq8aoeft7g",
+  password: "86e8e78d75d45394cfb556e63d7dce4d267619b3a5b07f64498e36862c4af2ee",
   port: 5432,
   ssl: true
 });
 
 // Connect to DB:
-// heroku pg:psql postgresql-metric-97293 --app labbunny
+// heroku pg:psql postgresql-shallow-30065 --app labbunny
 
 const connect = () => {
   return pool;
@@ -45,7 +45,6 @@ const getReqsByDate = (request, response) => {
         throw error;
       }
       response.status(200).json(results.rows);
-      // JSON.stringify(thing)
     }
   );
 };

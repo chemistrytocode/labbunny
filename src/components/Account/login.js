@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import GoogleLogin from "react-google-login";
 import { Redirect } from "react-router-dom";
-import "./Login.css";
+import "./login.css";
 
 export class Login extends Component {
   constructor(props) {
@@ -16,15 +16,18 @@ export class Login extends Component {
   sortData(res, type) {
     let data;
     if (type === "google" && res.w3.U3) {
+      let sanitizedEmail = res.w3.U3;
+      sanitizedEmail = sanitizedEmail.replace(/\./g, "-2e5");
       data = {
         name: res.w3.ig,
         provider: type,
-        email: res.w3.U3,
+        email: sanitizedEmail,
         provider_id: res.El,
         token: res.Zi.access_token,
         provider_pic: res.w3.Paa
       };
     }
+    console.log(data);
     return data;
   }
 
@@ -34,7 +37,6 @@ export class Login extends Component {
         .then(response => response.json())
         .then(users => {
           // If data exists, gets and stores data locally
-
           if (users[0]) {
             sessionStorage.setItem("userEmail", users.email);
             sessionStorage.setItem("userName", users.name);
@@ -49,6 +51,8 @@ export class Login extends Component {
             }).then(response => {
               sessionStorage.setItem("userEmail", data.email);
               sessionStorage.setItem("userName", data.name);
+              console.log(data.email);
+              console.log(data.name);
               this.setState({ redirect: true });
             });
           }

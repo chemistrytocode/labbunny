@@ -8,6 +8,8 @@ import UpcomingWeek from "./components/Upcoming/upcomingWeek";
 import UpcomingDay from "./components/Upcoming/upcomingDay";
 import Feedback from "./components/Feedback/feedback";
 import TwelveWeeks from "./components/TableData/twelveWeeks";
+import Reorder from "./components/Form/reorder";
+
 
 class App extends Component {
   render() {
@@ -22,6 +24,8 @@ class App extends Component {
             <Route path="/upcoming/:id" component={UpcomingDay} />
             <Route path="/feedback" component={Feedback} />
             <Route path="/day" component={TwelveWeeks} />
+            <Route path="/reorder" component={Reorder} />
+
           </div>
         </Switch>
       </div>
